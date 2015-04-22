@@ -74,6 +74,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccessLayer\BlogContext.cs" />
+    <Compile Include="DataAccessLayer\ContextInitializer.cs" />
+    <Compile Include="DataAccessLayer\Repository.cs" />
+    <Compile Include="Models\Blog.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Hashtag.cs" />
+    <Compile Include="Models\Link.cs" />
+    <Compile Include="Models\Owner.cs" />
+    <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
