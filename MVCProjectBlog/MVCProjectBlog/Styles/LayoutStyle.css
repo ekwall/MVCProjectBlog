@@ -1,0 +1,51 @@
+﻿* {
+     margin: 0;
+
+}
+.wrapper {
+    width: 100%;
+    height: 1000px;
+    background-color: darkslategrey;
+}
+.mainContent {
+    width: 800px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: dimgrey;
+    }
+ul.navigationUl {
+    float: left;
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+li.navigationLi {
+    float: left;
+    width: 25%;
+    background-color: floralwhite;
+    text-align: center;
+    
+    
+}
+li.navigationLi:hover {
+    background-color: forestgreen;
+    cursor: pointer;
+}
+div.header {
+    width: 100%;
+    height: 200px;
+}
+nav.navigation {
+    width: 800px;
+    height: 50px;
+    float: left;
+}
+div.headerContent {
+    width: 100%;
+    height: 150px;
+    float: left;
+    background-color: deepskyblue;
+    text-align: center;
+}
