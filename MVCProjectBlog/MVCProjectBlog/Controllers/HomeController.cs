@@ -21,7 +21,14 @@ namespace MVCProjectBlog.Controllers
             var blogEntities = new BlogContext();
             var repository = new Repository();
             return View(repository.ReturnBlogs());
+
             //return View(blogEntities.Owners.ToList());
+        }
+
+        public ActionResult Register()
+        {
+
+            return View();
         }
     }
 }

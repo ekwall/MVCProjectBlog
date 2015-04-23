@@ -18,25 +18,30 @@
             </div>
             <nav class="navigation">
                 <ul class="navigationUl">
-                    <li class="navigationLi">
-                        Home
+                    <li id="firstAnchor" class="navigationLi">
+                        <a class="navAnchor" href="Home.cshtml">Hem</a>
                     </li>
-                    <li class="navigationLi">
-                        About
+                    <li id="secondAnchor" class="navigationLi">
+                        <a class="navAnchor" href="Home.cshtml">Starta blogg</a>
                     </li>
-                    <li class="navigationLi">
-                        Login
+                    <li id="thirdAnchor" class="navigationLi">
+                        <a class="navAnchor" href="Home.cshtml">Login</a>
                     </li>
-                    <li class="navigationLi">
-                        Register
+                   
+                    <li id="fourthAnchor" class="navigationLi">
+                        <a class="navAnchor" href="Home.cshtml">Sök</a>
                     </li>
+                    <li id="fifthAnchor" class="navigationLi">
+                        <a class="navAnchor" href="Home.cshtml">Support</a>
+                    </li>
+                   
                 </ul>
 
             </nav>
         </div>
         <div class="container body-content">
             @RenderBody()
-            <hr/>
+            
             </div>
         </div>
 
