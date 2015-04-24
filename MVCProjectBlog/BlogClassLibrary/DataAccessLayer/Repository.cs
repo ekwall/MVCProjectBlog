@@ -10,6 +10,51 @@ namespace BlogClassLibrary.DataAccessLayer
     {
         private BlogContext _context;
 
+        public void CreatePost(string userName, string blogName, string header, string content)
+        {
+            List<Blog> listOfBlogs = new List<Blog>();
+            int id = 0;
+            var query =
+                from o in _context.Owners
+                where o.UserName == userName
+                join b in _context.Blogs on o.Id equals b.Id
+                where b.Name == blogName
+                select b;
+
+            foreach (var blog in query)
+            {
+                listOfBlogs.Add(blog);
+                id = blog.Id;
+            }
+            listOfBlogs.ForEach(p => _context.Posts.Add(new Post{ Header = header, Content = content,DateTime = DateTime.Now, Id = id}));
+            
+            _context.SaveChanges();
+
+
+        }
+
+        public string GetBlogName(string userName)
+        {
+            return (from b in _context.Owners
+                join p in _context.Blogs on b.Id equals p.Id
+                where b.UserName == userName
+                select p.Name).FirstOrDefault();
+        }
+        
+        public List<string> GetAllUserNames()
+        {
+            return (from o in _context.Owners
+                    orderby o.UserName descending 
+                select o.UserName).ToList();
+        }
+
+        public List<Owner> GetOwnersForWinForm(string username)
+        {
+            return (from o in _context.Owners
+                where o.UserName == username
+                select o).ToList();
+        }
+
         public Repository()
         {
             _context = new BlogContext();
