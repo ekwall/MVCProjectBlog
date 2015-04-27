@@ -30,3 +30,18 @@ img.logoImg {
     margin-right: 5%;
     float: right;
 }
+
+     
+.BlogLinkContainer {
+    width: 20%;
+    height: 200px;
+    margin-right: 5%;
+    margin-bottom: 25px;
+    float: left;
+    background-color: lightgrey;
+    
+}
+
+.BlogLinkContent {
+    background-color: whitesmoke;
+}

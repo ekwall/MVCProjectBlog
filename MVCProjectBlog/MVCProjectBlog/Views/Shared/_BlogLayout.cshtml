@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The title of the blog</title>
+    
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/BlogLayoutStyle.css" rel="stylesheet" />
+    
+</head>
+<body>
+
+    <div class="container">
+        <div class="row mainHeader">
+            <div class="col-md-2 col-sm-4 col-xs-6 logoDiv">
+
+            </div>
+
+            <div class="col-md-10 col-sm-8 col-xs-6 headerDiv">
+                <div class="headerTitle">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Wlcome to the Whiskey Blog",
+                                "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+                </div>
+
+                <div class="navigation">
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                         
+                            <li>@Html.ActionLink("About", "Contact", "Home")</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+        </div> <!-- *** row end *** -->
+    </div> <!-- ** container end ** -->
+    @RenderBody()
+
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

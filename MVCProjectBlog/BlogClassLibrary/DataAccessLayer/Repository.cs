@@ -33,6 +33,12 @@ namespace BlogClassLibrary.DataAccessLayer
 
         }
 
+        public Blog GetBlogWithId(int Id)
+        {
+            var bloglist = ReturnBlogs();
+            return Id < bloglist.Count ? bloglist[Id] : null;
+        }
+
         public string GetBlogName(string userName)
         {
             return (from b in _context.Owners

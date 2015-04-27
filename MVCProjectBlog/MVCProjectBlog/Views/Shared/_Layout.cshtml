@@ -7,58 +7,85 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    @*<link href="~/Styles/LayoutStyle.css" rel="stylesheet" />*@
+   
     <link href="~/Content/LayoutStyle.css" rel="stylesheet" />
 </head>
 <body>
-    
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="row mainHeader">
-                <div class="col-md-2 col-sm-4 col-xs-6 logoDiv">
-                   
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("RAJ's Blog Portal...", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Blogs", "Contact", "Home")</li>
+                </ul>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </div>
+    </div>
+
+<div class="container">
+    <div class="row mainHeader">
+        <div class="col-md-2 col-sm-4 col-xs-6 logoDiv">
+
+        </div>
+
+        <div class="col-md-10 col-sm-8 col-xs-6 headerDiv">
+            <div class="headerTitle">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Blogga med RAJ",
+                        "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
                 </div>
+            </div>
 
-                <div class="col-md-10 col-sm-8 col-xs-6 headerDiv">
-                    <div class="headerTitle">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            @Html.ActionLink("Blogga med RAJ",
-                                "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
-                        </div>
-                    </div>
-
-                    <div class="navigation">
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                                <li>@Html.ActionLink("Login", "About", "Home")</li>
-                                <li>@Html.ActionLink("About", "Contact", "Home")</li>
-                            </ul>
-
-                        </div>
-                    </div>
-
-
-
-
-                    
+            <div class="navigation">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Login", "About", "Home")</li>
+                        <li>@Html.ActionLink("About", "Contact", "Home")</li>
+                    </ul>
 
                 </div>
-                
-
-            </div> <!-- *** row end *** -->
-        </div> <!-- ** container end ** -->
-    
-    @RenderBody()
+            </div>
 
 
 
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+        </div>
+        <a href="../Blog">ToTheBlog</a>
+
+    </div> <!-- *** row end *** -->
+</div> <!-- ** container end ** -->
+
+<div class="container">
+    <div class="row mainHeader">
+        <div class="col-md-12 BlogLinkContent">
+            @RenderBody()
+        </div>
+
+
+    </div> <!-- *** row end *** -->
+</div> <!-- ** container end ** -->
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
