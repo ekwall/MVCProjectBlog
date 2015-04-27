@@ -1,0 +1,32 @@
+﻿* {
+    margin: 0;
+}
+
+div.logoDiv {
+    
+    
+    color: white;
+}
+
+div.headerDiv {
+    background-color: yellow;
+}
+
+img.logoImg {
+    width: 100%;
+}
+
+.mainHeader {
+    height: auto;
+    background-color: goldenrod;
+}
+
+.headerTitle {
+    width: 100%;
+    float: left;
+}
+
+.navigation {
+    margin-right: 5%;
+    float: right;
+}
