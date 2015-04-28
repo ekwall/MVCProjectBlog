@@ -58,6 +58,15 @@ namespace AddBlogsAndUsersWinForm
             }
             else
             {
+                var post = new Post
+                {
+                    Content = "content, blal bla bla bla",
+                    DateTime = DateTime.Now,
+                    Header = "Min CoOla Post",
+                    
+                };
+
+
                 repository.CreatePost(textBoxUserName.Text,textBoxBlogName.Text,textBoxPostHeader.Text,textBoxPostContent.Text);
                 //foreach (var owner in user)
                 //{

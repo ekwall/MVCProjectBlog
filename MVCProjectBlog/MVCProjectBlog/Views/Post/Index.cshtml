@@ -1,0 +1,25 @@
+﻿@model IEnumerable<BlogClassLibrary.Post>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>This is a Blog</h2>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            <html>Blog Header: </html> @Html.DisplayFor(modelItem => item.Header)
+        </td>
+        <td>
+          Blog Date:  @Html.DisplayFor(modelItem => item.DateTime)
+        </td>
+        <td>
+           Blog Content:  @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+      
+        </td>
+    </tr>
+
+}

@@ -26,12 +26,19 @@ namespace BlogClassLibrary.DataAccessLayer
                 listOfBlogs.Add(blog);
                 id = blog.Id;
             }
-            listOfBlogs.ForEach(p => _context.Posts.Add(new Post{ Header = header, Content = content,DateTime = DateTime.Now, Id = id}));
+
+            listOfBlogs.ForEach(p => _context.Posts.Add(new Post{ Header = header, Content = content,DateTime = DateTime.Now}));
             
             _context.SaveChanges();
 
 
         }
+
+   
+
+
+
+
 
         public Blog GetBlogWithId(int Id)
         {
@@ -94,5 +101,17 @@ namespace BlogClassLibrary.DataAccessLayer
 
             return query;
         }
+
+        public List<Post> GetPostWithBlogName(string blogName)
+        {
+          
+
+            return (from p in _context.Posts
+                    where p.Header == "Drank lagabullin"
+                    select p).ToList();
+
+        }
+
+       
     }
 }

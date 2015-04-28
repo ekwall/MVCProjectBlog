@@ -14,7 +14,7 @@
     <div class="BlogLinkContainer">
 
         <h3>
-        @Html.DisplayFor(modelItem => item.Name) @Html.ActionLink("Yeti", "Blog", "Selected", new { id = 0 }, null)
+        @Html.DisplayFor(modelItem => item.Name) @Html.ActionLink(item.Name,"Index", "Post" , new { id = item.Name }, null)
         </h3>
 
 
