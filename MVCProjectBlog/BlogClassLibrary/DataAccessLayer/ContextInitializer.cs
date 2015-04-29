@@ -98,6 +98,44 @@ namespace BlogClassLibrary.DataAccessLayer
                             }
                         }
                     }
+                },
+                new Blog
+                {
+                    Name = "Atari shall rule once more",
+                    Description = "Bloggin about the upcoming Atari invasion!",
+                    DateTime = DateTime.Now,Links = new List<Link>
+                    {
+                        new Link()
+                        {
+                            HyperLink = "www.lolcats.com"
+                        }
+                    },Posts = new List<Post>
+                    {
+                        new Post()
+                        {
+                            Header = "Rise of the old machines", 
+                            Content = "Atari skall crush yer all!",
+                            DateTime = new DateTime(2015,03,03),
+                            Postimage = "http://www.klennerit.de/wp-content/uploads/2013/04/Slide_3-918x349.jpg ",
+                            Comments = new List<Comment>{new Comment
+                            {
+                                Author = "Jakob",
+                                AuthorEmail = "aaa@eee.com",
+                                Content = "Hahahaha true dat dawgh!!",
+                                DateTime = new DateTime(2015,04,01)
+                            }},Hashtags = new List<Hashtag>
+                            {
+                                new Hashtag
+                                {
+                                    Tag = "#Atari"
+                                },
+                                new Hashtag
+                                {
+                                    Tag = "#worldOrder"
+                                }
+                            }
+                        }
+                    }
                 }
             };
             owners = new List<Owner>
