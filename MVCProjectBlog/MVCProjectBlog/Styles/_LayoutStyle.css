@@ -39,6 +39,42 @@ p,a,span,li,nav,footer {
         }
 
 
+        /*
+            Robin Testar
+        */
+
+        .RobinLearnPostHeader {
+            width: 600px;
+
+            border: solid black
+-webkit-box-shadow: 10px 10px 66px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 66px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 66px 0px rgba(0,0,0,0.75);
+}
+.RobinLearnPostContent {
+    width: 600px;
+
+            border: solid black
+-webkit-box-shadow: 10px 10px 66px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 66px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 66px 0px rgba(0,0,0,0.75);
+}
+
+.RobinLearingToComment {
+    width: 400px;
+    border: solid blueviolet;
+    -webkit-box-shadow: 5px 5px 40px 0px rgba(0,0,0,0.75);
+-moz-box-shadow:  5px 5px 40px 0px rgba(0,0,0,0.75);
+box-shadow:  5px 5px 40px 0px rgba(0,0,0,0.75);
+    
+}
+/*
+    Test slut
+
+*/
+
+
+
         @media (max-width: 767px) {
 #footer {
   margin-left: -20px;
@@ -58,6 +94,9 @@ div {
 .contentWrapper {
     margin-top: 65px;
 }
+
+}
+
 
 
 
