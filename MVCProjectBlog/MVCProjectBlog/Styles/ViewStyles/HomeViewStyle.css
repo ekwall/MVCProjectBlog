@@ -3,6 +3,7 @@
     height: 100px;
     overflow: hidden;
     margin-top: 50px;
+    margin-left: 15px;
 }
 
 .h3AvailableBlogsHeaderLink {
@@ -12,11 +13,12 @@
 .mainContent {
     background-color: #aaaaaa;
     min-height: 600px;
+    margin-top: 15px;
 }
 
 .sidebarContent {
     background-color: #cccccc;
-    
+    margin-top: 15px;
 }
 
 .sidebarContentPlaceholder {
@@ -36,5 +38,5 @@
 }
 
 .slideshowContainer {
-    margin-top: 50px;
+    margin-top: 25px;
 }
