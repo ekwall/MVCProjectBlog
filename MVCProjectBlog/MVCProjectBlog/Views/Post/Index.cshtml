@@ -7,19 +7,43 @@
 
 @foreach (var item in Model.Posts)
 {
-    <tr>
-        <td>
-            Blog Header:@Html.DisplayFor(modelItem => item.Header)
-        </td>
-        <td>
-          Blog Date:  @Html.DisplayFor(modelItem => item.DateTime)
-        </td>
-        <td>
-           Blog Content:  @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-      
-        </td>
-    </tr>
 
+
+    <div class="RobinLearnPostHeader">
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                <h2>@Html.DisplayFor(modelItem => item.Header)</h2>
+            </td>
+        </tr>
+
+        <div class="RobinLearnPostContent">
+
+
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+
+            </tr>
+
+        </div>
+        @foreach(var comment in item.Comments)
+        {
+        <div class="RobinLearingToComment">
+
+            This is a comment to the post
+
+
+            
+                <td>@Html.DisplayFor(modelItem => comment.DateTime)</td>
+                <td>@Html.DisplayFor(modelItem => comment.Author)</td>
+                <td>@Html.DisplayFor(modelItem => comment.Content)</td>
+            
+        </div>
+        }
+    </div>
 }

@@ -26,7 +26,25 @@ namespace BlogClassLibrary.DataAccessLayer
             };
             posts = new List<Post>
             {
-                new Post{DateTime = DateTime.Now, Postimage = "http://deverespub.com/wp-content/uploads/2011/06/whiskey-banner-1.jpg",Content = "Today I drank a lot of whiskey, lagabullin!",Header = "Drank lagabullin",Hashtags = hashtags,Comments = comments}
+                new Post{DateTime = DateTime.Now, Postimage = "http://deverespub.com/wp-content/uploads/2011/06/whiskey-banner-1.jpg",Content = "Today I drank a lot of whiskey, lagabullin! Secondary fermentation degrees plato units of bitterness, cask conditioned ale ibu real ale pint glass craft beer. krausen goblet grainy ibu brewhouse lagering finishing hops. Trappist, black malt chocolate malt balthazar gravity dextrin saccharification trappist final gravity. Aau scotch ale, adjunct. hops bung infusion, cask conditioning pitching malt extrac",Header = "Drank lagabullin",Hashtags = hashtags,Comments = comments},
+
+                new Post{DateTime = DateTime.Now, Postimage = "http://deverespub.com/wp-content/uploads/2011/06/whiskey-banner-1.jpg", Content = "Lucas ipsum dolor sit amet dagobah hutt skywalker wookiee gonk calrissian calamari jango sith luke. Antilles leia antilles windu lobot darth coruscant solo. Palpatine qui-gonn moff lando padmé droid. Organa aayla windu kenobi mara ackbar. Owen skywalker solo fisto mace kashyyyk. Darth sith qui-gonn naboo dantooine dooku kenobi windu. Boba hutt solo dantooine fett vader thrawn padmé darth. Moff fett vader organa solo jar. Coruscant obi-wan solo moff skywalker anakin bespin. Twi'lek hutt qui-gonn jango droid moff.", Header = "Nothing to drink, watching Star wars",  Comments = new List<Comment>{new Comment
+                            {
+                                Author = "Robin",
+                                AuthorEmail = "aaa@eee.com",
+                                Content = "I love star wars!!",
+                                DateTime = new DateTime(2015,04,01)
+                            }},Hashtags = new List<Hashtag>
+                            {
+                                new Hashtag
+                                {
+                                    Tag = "#StarWars"
+                                },
+                                new Hashtag
+                                {
+                                    Tag = "Wookie"
+                                }
+                            } }
             };
             links = new List<Link>
             {
