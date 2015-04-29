@@ -26,7 +26,7 @@ namespace BlogClassLibrary.DataAccessLayer
             };
             posts = new List<Post>
             {
-                new Post{DateTime = DateTime.Now, Postimage = "http://deverespub.com/wp-content/uploads/2011/06/whiskey-banner-1.jpg",Content = "Today I drank a lot of whiskey, lagabullin!",Header = "Drank lagabullin",Hashtags = hashtags,Comments = comments}
+                new Post{DateTime = DateTime.Now, Postimage = "http://deverespub.com/wp-content/uploads/2011/06/whiskey-banner-1.jpg",Content = "Today I drank a lot of whiskey, lagavullin!",Header = "Drank lagavullin",Hashtags = hashtags,Comments = comments}
             };
             links = new List<Link>
             {
