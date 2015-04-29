@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace BlogClassLibrary.DataAccessLayer
 {
-    public class ContextInitializer : DropCreateDatabaseIfModelChanges<BlogContext>
+    public class ContextInitializer : DropCreateDatabaseAlways<BlogContext>
     {
         private List<Owner> owners;
         private List<Blog> blogs;
@@ -41,6 +41,43 @@ namespace BlogClassLibrary.DataAccessLayer
                     Name = "Whiskey",
                     Description = "This blog is about drinking whiskey, please join me´",
                     DateTime = DateTime.Now,Links = links,Posts = posts
+                },
+                new Blog
+                {
+                    Name = "Kittens drinkin Whiskey",
+                    Description = "This blog is about kittens drinking whiskey, please join me´",
+                    DateTime = DateTime.Now,Links = new List<Link>
+                    {
+                        new Link()
+                        {
+                            HyperLink = "www.lolcats.com"
+                        }
+                    },Posts = new List<Post>
+                    {
+                        new Post()
+                        {
+                            Header = "This is Hilarious", 
+                            Content = "omg omg omg I just saw a frikkin walish kitten drink melk. Walish kittens are such bunch of ol' wankeeeeeeeerss",
+                            DateTime = new DateTime(2015,03,03),
+                            Comments = new List<Comment>{new Comment
+                            {
+                                Author = "Jakob",
+                                AuthorEmail = "aaa@eee.com",
+                                Content = "Hahahaha true dat dawgh!!",
+                                DateTime = new DateTime(2015,04,01)
+                            }},Hashtag = new List<Hashtag>
+                            {
+                                new Hashtag
+                                {
+                                    Tag = "#Walish"
+                                },
+                                new Hashtag
+                                {
+                                    Tag = "Kitten"
+                                }
+                            }
+                        }
+                    }
                 }
             };
             owners = new List<Owner>

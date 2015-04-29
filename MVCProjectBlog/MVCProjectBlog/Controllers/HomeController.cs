@@ -18,9 +18,10 @@ namespace MVCProjectBlog.Controllers
             //ViewBag.Description = "A delightful Trappistbeer.";
             
 
-            var blogEntities = new BlogContext();
+            //var blogEntities = new BlogContext();
             var repository = new Repository();
-            return View(repository.ReturnBlogs());
+            var model = repository.ReturnBlogs();
+            return View(model);
 
             
         }
