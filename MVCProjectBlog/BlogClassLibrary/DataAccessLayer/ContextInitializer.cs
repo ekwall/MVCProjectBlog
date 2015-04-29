@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace BlogClassLibrary.DataAccessLayer
 {
-    public class ContextInitializer : DropCreateDatabaseIfModelChanges<BlogContext>
+    public class ContextInitializer : DropCreateDatabaseAlways<BlogContext>
     {
         private List<Owner> owners;
         private List<Blog> blogs;
@@ -26,7 +26,7 @@ namespace BlogClassLibrary.DataAccessLayer
             };
             posts = new List<Post>
             {
-                new Post{DateTime = DateTime.Now,Content = "Today I drank a lot of whiskey, lagabullin!",Header = "Drank lagabullin",Hashtags = hashtags,Comments = comments}
+                new Post{DateTime = DateTime.Now, Postimage = "http://deverespub.com/wp-content/uploads/2011/06/whiskey-banner-1.jpg",Content = "Today I drank a lot of whiskey, lagabullin!",Header = "Drank lagabullin",Hashtags = hashtags,Comments = comments}
             };
             links = new List<Link>
             {
@@ -59,6 +59,7 @@ namespace BlogClassLibrary.DataAccessLayer
                             Header = "This is Hilarious", 
                             Content = "omg omg omg I just saw a frikkin walish kitten drink melk. Walish kittens are such bunch of ol' wankeeeeeeeerss",
                             DateTime = new DateTime(2015,03,03),
+                            Postimage = "http://www.2naturalhealers.co.uk/image/root/slide-3/918/349/",
                             Comments = new List<Comment>{new Comment
                             {
                                 Author = "Jakob",

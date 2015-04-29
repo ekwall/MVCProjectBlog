@@ -25,6 +25,8 @@ p,a,span,li,nav,footer {
           height: auto;
           /* Negative indent footer by its height */
           margin: 0 auto -60px;
+            margin-top: 60px;
+            margin-bottom: -60px;
           /* Pad bottom by footer height */
           padding: 0 0 60px;
         }
@@ -37,11 +39,24 @@ p,a,span,li,nav,footer {
         }
 
 
+        @media (max-width: 767px) {
+#footer {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
 /* sticky footer end */
 
 
 div {
     display: block;
+}
+
+.contentWrapper {
+    margin-top: 65px;
 }
 
 
