@@ -67,7 +67,7 @@ namespace AddBlogsAndUsersWinForm
                 };
 
 
-                repository.CreatePost(textBoxUserName.Text,textBoxBlogName.Text,textBoxPostHeader.Text,textBoxPostContent.Text);
+                repository.CreatePost(textBoxBlogName.Text,textBoxPostHeader.Text,textBoxPostContent.Text);
                 textBoxPostHeader.Text = "";
                 textBoxPostContent.Text = "";
                 

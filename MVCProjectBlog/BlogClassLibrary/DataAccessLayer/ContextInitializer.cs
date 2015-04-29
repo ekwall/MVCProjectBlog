@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace BlogClassLibrary.DataAccessLayer
 {
-    public class ContextInitializer : DropCreateDatabaseAlways<BlogContext>
+    public class ContextInitializer : DropCreateDatabaseIfModelChanges<BlogContext>
     {
         private List<Owner> owners;
         private List<Blog> blogs;

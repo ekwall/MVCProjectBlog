@@ -9,7 +9,7 @@ namespace BlogClassLibrary.DataAccessLayer
     public class Repository
     {
 
-        public void CreatePost(string userName, string blogName, string header, string content)
+        public void CreatePost(string blogName, string header, string content)
         {
             using (var _context = new BlogContext())
             {
@@ -42,7 +42,6 @@ namespace BlogClassLibrary.DataAccessLayer
 
             }
         }
-
         public List<string> GetAllUserNames()
         {
             using (var _context = new BlogContext())
@@ -53,7 +52,6 @@ namespace BlogClassLibrary.DataAccessLayer
 
             }
         }
-
         public List<Owner> GetOwnersForWinForm(string username)
         {
             using (var _context = new BlogContext())
@@ -61,11 +59,8 @@ namespace BlogClassLibrary.DataAccessLayer
                 return (from o in _context.Owners
                         where o.UserName == username
                         select o).ToList();
-
             }
         }
-
-
         public List<string> ReturnBlogName()
         {
             using (var _context = new BlogContext())
@@ -73,9 +68,7 @@ namespace BlogClassLibrary.DataAccessLayer
                 var query =
                     (from u in _context.Owners
                      select u.UserName).ToList();
-
                 return query;
-
             }
         }
 
@@ -94,33 +87,27 @@ namespace BlogClassLibrary.DataAccessLayer
 
         public List<Blog> ReturnBlogs()
         {
-            using (var _context = new BlogContext())
-            {
-                var query =
-                    (from b in _context.Blogs
+            var _context = new BlogContext();
+                return (from b in _context.Blogs
                      select b
                          ).ToList();
-
-                return query;
-
-            }
         }
-
-
-
-        public List<Post> GetPostWithBlogName(string blogName)
+        public List<Post> ReturnPostsToMainCarousell()
         {
-            using (var _context = new BlogContext())
-            {
-
-                return (from p in _context.Posts
-                        where p.Header == "Drank lagabullin"
-                        select p).ToList();
-            }
-
-
+            var _context = new BlogContext();
+            return (from b in _context.Blogs
+                    from p in b.Posts
+                    orderby p.DateTime descending
+                    select p
+                    ).Take(5).ToList();
         }
-
-
+        public Blog GetPostWithBlogName(string blogName)
+        {
+            var _context = new BlogContext();
+            
+                return (from b in _context.Blogs
+                    where b.Name == blogName
+                    select b).FirstOrDefault();
+        }
     }
 }

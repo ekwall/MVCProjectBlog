@@ -12,20 +12,18 @@ namespace MVCProjectBlog.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            //var owner = new Repository();
-            //var listOfOwners = owner.ReturnBlogName();
-            //ViewBag.Name = listOfOwners[0];
-            //ViewBag.Description = "A delightful Trappistbeer.";
-            
-
-            //var blogEntities = new BlogContext();
             var repository = new Repository();
             var model = repository.ReturnBlogs();
             return View(model);
-
-            
         }
 
+        public ActionResult CarousellPosts()
+        {
+            var repository = new Repository();
+            var model = repository.ReturnPostsToMainCarousell();
+            model = model.Take(5).ToList();
+            return PartialView("CarousellPosts",model);
+        }
         public ActionResult Register()
         {
 

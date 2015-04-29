@@ -10,10 +10,10 @@ namespace MVCProjectBlog.Controllers
     public class PostController : Controller
     {
         // GET: Post
-        public ActionResult Index(string blogName)
+        public ActionResult Index(string id)
         {
             var DB = new Repository();
-           var model =  DB.GetPostWithBlogName(blogName);
+            var model = DB.GetPostWithBlogName(id);
 
             return View(model);
         }

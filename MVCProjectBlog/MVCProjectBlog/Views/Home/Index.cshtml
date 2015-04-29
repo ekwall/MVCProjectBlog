@@ -4,65 +4,16 @@
     ViewBag.Title = "Index";
 }
 <link href="~/Styles/ViewStyles/HomeViewStyle.css" rel="stylesheet" />
-<h2>Blogs</h2>
-
-
 <div class="container">
     <div class="row">
 
         <div class="col-md-9 mainContent">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 slideshowContainer">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img src="http://www.cisny.com/wp-content/uploads/2011/08/boat-918x349.jpg" alt="...">
-                                    <div class="carousel-caption">
-                                        
-                                        <h3>Welcome to the RAJ Blog Portal. Your new favourite home on the web!</h3>
-                                    </div>
-                                </div>
-                                
-
-                                @foreach (var item in Model)
-                                {
-                                    <div class="item">
-                                        <img src="http://deverespub.com/wp-content/uploads/2011/06/whiskey-banner-1.jpg" alt="...">
-                                        <div class="carousel-caption">
-                                            <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
-                                        </div>
-                                    </div>
-                                    
-
-                                    
-
-                                }
-
-                                
-                                
-                            </div>
-
-                            <!-- Controls -->
-                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                        </div> <!-- Carousel -->
-                    </div>
+                  @Html.Action("CarousellPosts")
                     @foreach (var item in Model)
                     {
-                        <div class="col-md-2 AvailableBlogsContainer">
+                        <div class="col-md-3 AvailableBlogsContainer">
 
                             <h3 class="h3AvailableBlogsHeaderLink">
                                 @Html.ActionLink(item.Name, "Index", "Post", new {id = item.Name}, null)
