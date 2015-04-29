@@ -68,28 +68,9 @@ namespace AddBlogsAndUsersWinForm
 
 
                 repository.CreatePost(textBoxUserName.Text,textBoxBlogName.Text,textBoxPostHeader.Text,textBoxPostContent.Text);
-                //foreach (var owner in user)
-                //{
-                //    owner.Blogs.ForEach(p => _context.Posts.Add(new Post { Header = textBoxPostHeader.Text, Content = textBoxPostContent.Text }));
-                //}
-                //foreach (var blog in _context.Blogs)
-                //{
-                //    if (blog.Name == textBoxBlogName.Text)
-                //    {
-                //        blog.Posts.Add(new Post{ Header = textBoxPostHeader.Text, Content = textBoxPostContent.Text });
-                //    }
-                //}
-                //foreach (var owner in _context.Owners)
-                //{
-                //    foreach (var blog in owner.Blogs)
-                //    {
-                //        blog.Posts.Add(new Post { Header = textBoxPostHeader.Text, Content = textBoxPostContent.Text });
-                //    }
-                //}
-                //_context.Posts.Add(new Post {Header = textBoxPostHeader.Text, Content = textBoxPostContent.Text});
                 textBoxPostHeader.Text = "";
                 textBoxPostContent.Text = "";
-                //_context.SaveChanges();
+                
             }
         }
     }

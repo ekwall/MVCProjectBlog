@@ -26,7 +26,7 @@ namespace BlogClassLibrary.DataAccessLayer
             };
             posts = new List<Post>
             {
-                new Post{DateTime = DateTime.Now,Content = "Today I drank a lot of whiskey, lagabullin!",Header = "Drank lagabullin",Hashtag = hashtags,Comments = comments}
+                new Post{DateTime = DateTime.Now,Content = "Today I drank a lot of whiskey, lagabullin!",Header = "Drank lagabullin",Hashtags = hashtags,Comments = comments}
             };
             links = new List<Link>
             {
@@ -65,7 +65,7 @@ namespace BlogClassLibrary.DataAccessLayer
                                 AuthorEmail = "aaa@eee.com",
                                 Content = "Hahahaha true dat dawgh!!",
                                 DateTime = new DateTime(2015,04,01)
-                            }},Hashtag = new List<Hashtag>
+                            }},Hashtags = new List<Hashtag>
                             {
                                 new Hashtag
                                 {

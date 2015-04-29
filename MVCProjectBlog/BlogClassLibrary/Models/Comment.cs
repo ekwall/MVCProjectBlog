@@ -13,5 +13,6 @@ namespace BlogClassLibrary
         public string Author { get; set; }
         public string AuthorEmail { get; set; }
         public DateTime DateTime { get; set; }
+        public virtual Post Post { get; set; }
     }
 }

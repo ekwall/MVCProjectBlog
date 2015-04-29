@@ -8,37 +8,22 @@ namespace BlogClassLibrary.DataAccessLayer
 {
     public class Repository
     {
-        private BlogContext _context;
 
         public void CreatePost(string userName, string blogName, string header, string content)
         {
-            List<Blog> listOfBlogs = new List<Blog>();
-            int id = 0;
-            var query =
-                from o in _context.Owners
-                where o.UserName == userName
-                join b in _context.Blogs on o.Id equals b.Id
-                where b.Name == blogName
-                select b;
-
-            foreach (var blog in query)
+            using (var _context = new BlogContext())
             {
-                listOfBlogs.Add(blog);
-                id = blog.Id;
+                var selectedBlog =
+                    (from b in _context.Blogs
+                     where b.Name == blogName
+                     select b).FirstOrDefault();
+                if (selectedBlog != null)
+                {
+                    selectedBlog.Posts.Add(new Post { Header = header, Content = content, DateTime = DateTime.Now });
+                    _context.SaveChanges();
+                }
             }
-
-            listOfBlogs.ForEach(p => _context.Posts.Add(new Post{ Header = header, Content = content,DateTime = DateTime.Now}));
-            
-            _context.SaveChanges();
-
-
         }
-
-   
-
-
-
-
 
         public Blog GetBlogWithId(int Id)
         {
@@ -48,72 +33,94 @@ namespace BlogClassLibrary.DataAccessLayer
 
         public string GetBlogName(string userName)
         {
-            return (from b in _context.Owners
-                join p in _context.Blogs on b.Id equals p.Id
-                where b.UserName == userName
-                select p.Name).FirstOrDefault();
+            using (var _context = new BlogContext())
+            {
+                return (from b in _context.Owners
+                        join p in _context.Blogs on b.Id equals p.Id
+                        where b.UserName == userName
+                        select p.Name).FirstOrDefault();
+
+            }
         }
-        
+
         public List<string> GetAllUserNames()
         {
-            return (from o in _context.Owners
-                    orderby o.UserName descending 
-                select o.UserName).ToList();
+            using (var _context = new BlogContext())
+            {
+                return (from o in _context.Owners
+                        orderby o.UserName descending
+                        select o.UserName).ToList();
+
+            }
         }
 
         public List<Owner> GetOwnersForWinForm(string username)
         {
-            return (from o in _context.Owners
-                where o.UserName == username
-                select o).ToList();
+            using (var _context = new BlogContext())
+            {
+                return (from o in _context.Owners
+                        where o.UserName == username
+                        select o).ToList();
+
+            }
         }
 
-        public Repository()
-        {
-            _context = new BlogContext();
-        }
 
         public List<string> ReturnBlogName()
         {
+            using (var _context = new BlogContext())
+            {
+                var query =
+                    (from u in _context.Owners
+                     select u.UserName).ToList();
 
-            var query =
-                (from u in _context.Owners
-                    select u.UserName).ToList();
+                return query;
 
-            return query;
+            }
         }
 
         public List<Owner> ReturnOwners()
         {
-            var query =
-                (from o in _context.Owners
-                    select o).ToList();
+            using (var _context = new BlogContext())
+            {
+                var query =
+                    (from o in _context.Owners
+                     select o).ToList();
 
-            return query;
+                return query;
+
+            }
         }
 
         public List<Blog> ReturnBlogs()
         {
-            var query =
-                (from b in _context.Blogs
+            using (var _context = new BlogContext())
+            {
+                var query =
+                    (from b in _context.Blogs
                      select b
-                     ).ToList();
+                         ).ToList();
 
-            return query;
+                return query;
+
+            }
         }
 
-       
+
 
         public List<Post> GetPostWithBlogName(string blogName)
         {
-          
+            using (var _context = new BlogContext())
+            {
 
-            return (from p in _context.Posts
-                    where p.Header == "Drank lagabullin"
-                    select p).ToList();
+                return (from p in _context.Posts
+                        where p.Header == "Drank lagabullin"
+                        select p).ToList();
+            }
+
 
         }
 
-       
+
     }
 }
