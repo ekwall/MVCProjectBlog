@@ -7,4 +7,12 @@
     });
 
 
+    
+
+//    $(".AvailableBlogsContainer").click(
+//    function(){$(this).animate({width: "400px", height:"400px"}, 500);},        
+//    function(){$(this).animate({width: "400px", height:"400px"}, 500);}
+//);
+
+
 });

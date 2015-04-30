@@ -29,5 +29,11 @@ namespace MVCProjectBlog.Controllers
 
             return View();
         }
+
+        public ActionResult Login()
+        {
+           
+            return PartialView("_Login");
+        }
     }
 }
