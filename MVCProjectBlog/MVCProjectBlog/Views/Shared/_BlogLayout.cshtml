@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The title of the blog</title>
+    <title>@ViewBag.Title </title>
     
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
@@ -13,9 +13,10 @@
 <body>
 
     <div class="container">
-        <div class="row mainHeader">
-            <div class="col-md-2 col-sm-4 col-xs-6 logoDiv">
-
+        <div class="row">
+            <div class="col-md-12 col-lg-12 mainHeader">
+                <h3>Welcome to the Blog</h3>
+                @*<img class="blogHeaderImage" src="http://deverespub.com/wp-content/uploads/2011/06/whiskey-banner-1.jpg" alt="" />*@
             </div>
 
             <div class="col-md-10 col-sm-8 col-xs-6 headerDiv">

@@ -25,6 +25,17 @@ namespace BlogClassLibrary.DataAccessLayer
             }
         }
 
+        public Post ReturnBlogWithOnePost(string PostId)
+        {
+            int postId = Int32.Parse(PostId);
+            var _context = new BlogContext();
+
+            return (
+                from p in _context.Posts
+                where p.Id == postId
+                select p).FirstOrDefault();
+        }
+
         public Blog GetBlogWithId(int Id)
         {
             var bloglist = ReturnBlogs();
@@ -92,6 +103,33 @@ namespace BlogClassLibrary.DataAccessLayer
                      select b
                          ).ToList();
         }
+
+        public Blog ReturnBlogs(string BlogId)
+        {
+            int blogId = Int32.Parse(BlogId);
+            var returnBlog = new Blog();
+
+            var _context = new BlogContext();
+            
+                var query =
+                    from b in _context.Blogs
+                    where b.Id == blogId
+                    select b;
+
+                returnBlog = query.FirstOrDefault();
+                return returnBlog;
+            
+}
+
+        public List<Hashtag> ReturnTenHashtags()
+        {
+            using (var _context = new BlogContext())
+            {
+                return (
+                    from h in _context.Hashtags
+                    select h).Take(10).ToList();
+            }
+        } 
         public List<Post> ReturnPostsToMainCarousell()
         {
             var _context = new BlogContext();

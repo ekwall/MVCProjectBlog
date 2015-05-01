@@ -35,5 +35,12 @@ namespace MVCProjectBlog.Controllers
            
             return PartialView("_Login");
         }
+
+        public ActionResult _HashTags()
+        {
+            var repository = new Repository();
+            var model = repository.ReturnTenHashtags();
+            return PartialView("_Hashtags",model);
+        }
     }
 }

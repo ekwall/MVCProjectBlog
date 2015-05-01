@@ -16,7 +16,8 @@
                         <div class="col-md-3 AvailableBlogsContainer">
 
                             <h3 class="h3AvailableBlogsHeaderLink">
-                                @Html.ActionLink(item.Name, "Index", "Post", new {id = item.Name}, null)
+                                @*@Html.ActionLink(item.Name, "Index", "Post", new {id = item.Name}, null)*@
+                                @Html.ActionLink(item.Name, "Index", "Blog", new {BlogId = item.Id}, null)
 
                             </h3>
 
@@ -26,7 +27,7 @@
 
 
                         </div>
-                        @*<div class="col-md-1"></div>*@
+                       
                     }
                 </div>
             </div>
@@ -36,7 +37,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 sidebarContentPlaceholder">
-                        <h5>Top-Ten</h5>
+                        <h5>Top-Ten hashtags</h5>
+                        @foreach (var blog in Model)
+                        {
+
+                            foreach (var post in blog.Posts)
+                            {
+                                @Html.Partial("_HashTags",post.Hashtags)
+                            }
+
+
+                        }
+
+                        
+
                     </div>
                     <div class="col-md-12 sidebarContentPlaceholder">
                         <h5>Links</h5>

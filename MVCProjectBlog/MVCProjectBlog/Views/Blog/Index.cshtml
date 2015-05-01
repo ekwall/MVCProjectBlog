@@ -1,53 +1,49 @@
-﻿@model IEnumerable<BlogClassLibrary.Blog>
-
+﻿@model BlogClassLibrary.Blog
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>This is a Blog with many posts</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BackgroundImage)
-        </th>
-        <th></th>
-    </tr>
+@foreach (var item in Model.Posts)
+{
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BackgroundImage)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
-            @Html.ActionLink("Details", "Details", new {id = item.Id}) |
-            @Html.ActionLink("Delete", "Delete", new {id = item.Id})
-        </td>
-    </tr>
 
+    <div class="RobinLearnPostHeader">
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                <h2>@Html.DisplayFor(modelItem => item.Header)</h2>
+            </td>
+        </tr>
+
+        <div class="RobinLearnPostContent">
+
+
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+
+            </tr>
+
+        </div>
+        @foreach(var comment in item.Comments)
+        {
+        <div class="RobinLearingToComment">
+
+            This is a comment to the post
+
+
+            
+                <td>@Html.DisplayFor(modelItem => comment.DateTime)</td>
+                <td>@Html.DisplayFor(modelItem => comment.Author)</td>
+                <td>@Html.DisplayFor(modelItem => comment.Content)</td>
+            
+        </div>
+        }
+    </div>
 }
-   
-
-</table>

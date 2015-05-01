@@ -11,15 +11,21 @@ namespace MVCProjectBlog.Controllers
     public class BlogController : Controller
     {
         // GET: Blog
-        public ActionResult Index()
+        public ActionResult Index(string BlogId)
         {
 
-
-            var blogEntities = new BlogContext();
             var repository = new Repository();
-            var model = repository.ReturnBlogs();
+            var model = repository.ReturnBlogs(BlogId);
             return View(model);
 
+        }
+
+        public ActionResult Post(string PostId)
+        {
+
+            var repository = new Repository();
+            var model = repository.ReturnBlogWithOnePost(PostId);
+            return View(model);
         }
 
         //public ActionResult Index(int Id)

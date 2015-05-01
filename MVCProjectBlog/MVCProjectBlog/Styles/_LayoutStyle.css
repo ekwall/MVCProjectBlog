@@ -10,6 +10,14 @@ p,a,span,li,nav,footer {
     font-family: 'Merriweather', serif;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;  
+}
+
 /* sticky footer */
 
 
@@ -73,27 +81,31 @@ box-shadow:  5px 5px 40px 0px rgba(0,0,0,0.75);
 
 */
 
+.hashtagPresentList {
+    float: left;
+}
+
 
 
         @media (max-width: 767px) {
-#footer {
-  margin-left: -20px;
-  margin-right: -20px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
+    #footer {
+      margin-left: -20px;
+      margin-right: -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
 
 
-/* sticky footer end */
+    /* sticky footer end */
 
 
-div {
-    display: block;
-}
+    div {
+        display: block;
+    }
 
-.contentWrapper {
-    margin-top: 65px;
-}
+    .contentWrapper {
+        margin-top: 65px;
+    }
 
 }
 

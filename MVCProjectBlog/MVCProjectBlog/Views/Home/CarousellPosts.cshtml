@@ -30,6 +30,9 @@
                         <img src="@Html.DisplayFor(modelItem => post.Postimage)" alt="...">
                         <div class="carousel-caption">
                             <h3 class="CarouselH3">@Html.DisplayFor(modelItem => post.Header)</h3>
+                            @Html.ActionLink(post.Header, "Post", "Blog", new { PostId = post.Id}, null)
+
+                            @*@Html.ActionLink(item.Name, "Index", "Blog", new { BlogId = item.Id }, null)*@
                         </div>
                     </div>
                 }

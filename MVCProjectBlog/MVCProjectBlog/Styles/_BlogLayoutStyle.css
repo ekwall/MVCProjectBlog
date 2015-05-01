@@ -1,115 +1,24 @@
-﻿/** {
+﻿* {
      margin: 0;
 
 }
-.wrapper {
-    width: 100%;
-    height: 1000px;
-    background-color: darkslategrey;
-}
-.mainContent {
-    width: 800px;
-    height: 100%;
-    margin: 0 auto;
-    background-color: dimgrey;
-    }
-ul.navigationUl {
-    float: left;
-    list-style: none;
-    width: 100%;
-    margin: 0;
-    padding: 0;
 
-}
-li.navigationLi {
-    float: left;
-    width: 15%;
-    margin-left: 5%;
-
-    height: 120px;
-    border-radius: 50%;
-    background-color: floralwhite;
-    text-align: center;
+.mainHeader {
     
+   
+    height: 250px;
+    background-image: url("http://deverespub.com/wp-content/uploads/2011/06/whiskey-banner-1.jpg");
+    background-repeat: no-repeat;
+    
+    background-position: center; 
+
+    
+
+}
+
+.blogHeaderImage {
+    vertical-align: bottom;
+    width: 100%;
     
 }
 
-a.navAnchor {
-    margin-top: 45px;
-    margin-left: 30px;
-
-    float: left; 
-}
-
-li.navigationLi:hover {
-    background-color: forestgreen;
-    cursor: pointer;
-}
-
-li#firstAnchor:hover {
-    background-color: forestgreen;
-    cursor: pointer;
-}
-
-li#secondAnchor:hover {
-    background-color: aqua;
-    cursor: pointer;
-}
-
-li#thirdAnchor:hover {
-    background-color: red;
-    cursor: pointer;
-}
-
-li#fourthAnchor:hover {
-    background-color: yellow;
-    cursor: pointer;
-}
-
-li#fifthAnchor:hover {
-    background-color: hotpink;
-    cursor: pointer;
-}
-
-
-div.header {
-    width: 100%;
-    height: 200px;
-    margin-bottom: 150px;
-}
-nav.navigation {
-    width: 800px;
-    height: 50px;
-    float: left;
-}
-div.headerContent {
-    width: 100%;
-    height: 150px;
-    float: left;
-    background-color: deepskyblue;
-    text-align: center;
-}
-
-
-.LabelDescriptionInput {
-    
-    float: left;
-    
-}
-
-.RegisterDiv {
-    width: 35%;
-}
-
-.TextboxDescription {
-    float: right;
-}
-
-p.ParagraphDescription {
-    float: left;
-    width: 100%;
-}
-
-.ButtonRegisterUser {
-    float: left;
-}*/
