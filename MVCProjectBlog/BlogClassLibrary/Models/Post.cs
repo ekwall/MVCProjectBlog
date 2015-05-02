@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace BlogClassLibrary
 {
@@ -12,6 +14,11 @@ namespace BlogClassLibrary
         }
         public int Id { get; set; }
         public string Header { get; set; }
+
+        [Required]
+        [AllowHtml]
+        [UIHint("tinymce_full_compressed")]
+        [Display(Name = "Content")]
         public string Content { get; set; }
         public DateTime DateTime { get; set; }
         public string Postimage { get; set; }

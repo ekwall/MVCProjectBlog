@@ -1,49 +1,99 @@
 ﻿@model BlogClassLibrary.Blog
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Model.Name;
+    ViewBag.HeaderMainText = Model.Name;
+    ViewBag.HeaderMainDescription = Model.Description;
+    ViewBag.HeaderImage = Model.BackgroundImage;
 }
 
-<h2>This is a Blog with many posts</h2>
+<div class="col-md-9 blogMainContent">
+    <h2>This is a Blog with many posts</h2>
 
-@foreach (var item in Model.Posts)
-{
-
-
-    <div class="RobinLearnPostHeader">
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateTime)
-            </td>
-            <td>
-                <h2>@Html.DisplayFor(modelItem => item.Header)</h2>
-            </td>
-        </tr>
-
-        <div class="RobinLearnPostContent">
+    @foreach (var item in Model.Posts)
+    {
 
 
-
+        <div class="RobinLearnPostHeader">
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Content)
+                    @Html.DisplayFor(modelItem => item.DateTime)
                 </td>
-
+                <td>
+                    <h2>@Html.DisplayFor(modelItem => item.Header)</h2>
+                </td>
             </tr>
 
+            <div class="RobinLearnPostContent">
+
+
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Content)
+                    </td>
+
+                </tr>
+
+            </div>
+            @foreach (var comment in item.Comments)
+            {
+                <div class="RobinLearingToComment">
+
+                    This is a comment to the post
+
+
+
+                    <td>@Html.DisplayFor(modelItem => comment.DateTime)</td>
+                    <td>@Html.DisplayFor(modelItem => comment.Author)</td>
+                    <td>@Html.DisplayFor(modelItem => comment.Content)</td>
+
+                </div>
+            }
         </div>
-        @foreach(var comment in item.Comments)
-        {
-        <div class="RobinLearingToComment">
-
-            This is a comment to the post
-
-
-            
-                <td>@Html.DisplayFor(modelItem => comment.DateTime)</td>
-                <td>@Html.DisplayFor(modelItem => comment.Author)</td>
-                <td>@Html.DisplayFor(modelItem => comment.Content)</td>
-            
+    }
+    @foreach (var post in Model.Posts)
+    {
+        <div class="editor-label">
+            @Html.LabelFor(singlePost => singlePost.Description)
         </div>
-        }
+        <div class="editor-field">
+            @Html.EditorFor(posts => post.Content)
+            @Html.ValidationMessageFor(posts => post.Content)
+        </div>
+    }
+    
+
+</div>
+
+<div class="col-md-3 blogSideContent">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 sidebarContentPlaceholder">
+                <h5>Top-Ten hashtags</h5>
+                @*@foreach (var blog in Model)
+                {
+
+                    foreach (var post in blog.Posts)
+                    {
+                        @Html.Partial("_HashTags", post.Hashtags)
+                    }
+
+
+                }*@
+
+
+
+            </div>
+            <div class="col-md-12 sidebarContentPlaceholder">
+                <h5>Links</h5>
+            </div>
+            <div class="col-md-12 sidebarContentPlaceholder">
+                <h5>Placeholder</h5>
+            </div>
+        </div>
     </div>
-}
+
+</div>
+
+

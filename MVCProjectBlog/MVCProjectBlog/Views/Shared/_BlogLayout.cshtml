@@ -7,19 +7,33 @@
     
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <link href="~/Styles/_BlogLayoutStyle.css" rel="stylesheet" />
-    
+    <link href="~/Styles/_BlogLayoutStyle.css" rel="stylesheet"/>
+
+    <!-- *** fonts **** -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-lg-12 mainHeader">
-                <h3>Welcome to the Blog</h3>
-                @*<img class="blogHeaderImage" src="http://deverespub.com/wp-content/uploads/2011/06/whiskey-banner-1.jpg" alt="" />*@
-            </div>
+            <div class="col-md-12 col-lg-12 mainHeader" background="">
+                <div class="headerTextContainer headerContextElement">
+                    <h3 class="blogHeaderHeadline">@ViewBag.HeaderMainText</h3>
+                    <h4 class="blogHeaderDescription">@ViewBag.HeaderMainDescription</h4>
+                </div>
+                <div class="headerImageContainer headerContextElement">
+                    <img class="blogHeaderImageElement" src="@ViewBag.HeaderImage" alt="" />
+                </div>
 
-            <div class="col-md-10 col-sm-8 col-xs-6 headerDiv">
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <nav class="col-md-12 blogMainNavigation">
                 <div class="headerTitle">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -36,24 +50,25 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                         
+
                             <li>@Html.ActionLink("About", "Contact", "Home")</li>
                         </ul>
 
                     </div>
                 </div>
 
-
-
-
-
-
-            </div>
+            </nav>
 
 
         </div> <!-- *** row end *** -->
     </div> <!-- ** container end ** -->
-    @RenderBody()
+
+    <div class="container">
+        <div class="row">
+            @RenderBody()
+        </div>
+    </div>
+
 
 
 

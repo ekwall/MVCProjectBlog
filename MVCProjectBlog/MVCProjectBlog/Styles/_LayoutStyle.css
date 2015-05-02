@@ -10,12 +10,21 @@ p,a,span,li,nav,footer {
     font-family: 'Merriweather', serif;
 }
 
+body {
+    background-image: url("http://www.promenadd.com/en/wp-content/uploads/2013/04/promenadd_grey_background.jpg");
+        
+}
+
 a {
     text-decoration: none;
 }
 
 a:hover {
   text-decoration: none;  
+}
+
+.navigationFrameFullWidth {
+    /*height: 150px;*/
 }
 
 /* sticky footer */

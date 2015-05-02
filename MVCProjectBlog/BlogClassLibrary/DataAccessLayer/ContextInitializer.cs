@@ -59,12 +59,14 @@ namespace BlogClassLibrary.DataAccessLayer
                 {
                     Name = "Whiskey",
                     Description = "This blog is about drinking whiskey, please join me´",
-                    DateTime = DateTime.Now,Links = links,Posts = posts
+                    DateTime = DateTime.Now,Links = links,Posts = posts,
+                    BackgroundImage = "http://deverespub.com/wp-content/uploads/2011/06/whiskey-banner-1.jpg"
                 },
                 new Blog
                 {
                     Name = "Kittens drinkin Whiskey",
                     Description = "This blog is about kittens drinking whiskey, please join me´",
+                    BackgroundImage = "http://www.2naturalhealers.co.uk/image/root/slide-3/918/349/",
                     DateTime = DateTime.Now,Links = new List<Link>
                     {
                         new Link()
@@ -103,6 +105,7 @@ namespace BlogClassLibrary.DataAccessLayer
                 {
                     Name = "Atari shall rule once more",
                     Description = "Bloggin about the upcoming Atari invasion!",
+                    BackgroundImage = "http://www.klennerit.de/wp-content/uploads/2013/04/Slide_3-918x349.jpg ",
                     DateTime = DateTime.Now,Links = new List<Link>
                     {
                         new Link()

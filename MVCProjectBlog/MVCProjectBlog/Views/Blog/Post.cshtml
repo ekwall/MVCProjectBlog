@@ -1,7 +1,7 @@
 ﻿@model BlogClassLibrary.Post
 
 @{
-    ViewBag.Title = "Post";
+    ViewBag.Title = Model.Blog.Name + " | " + Model.Header ;
     Layout = "~/Views/Shared/_BlogLayout.cshtml";
 }
 
