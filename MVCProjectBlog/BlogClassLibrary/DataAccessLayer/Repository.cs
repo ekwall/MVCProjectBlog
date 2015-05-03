@@ -9,6 +9,47 @@ namespace BlogClassLibrary.DataAccessLayer
     public class Repository
     {
 
+        public void UpdatePost(Post updatedPost)
+        {
+            using (var _context = new BlogContext())
+            {
+                if (updatedPost.Id >= 0 && updatedPost.Id < _context.Posts.Count())
+                {
+                    var targetPost =
+                        (from p in _context.Posts
+                            where p.Id == updatedPost.Id
+                            select p).FirstOrDefault();
+
+                    targetPost.Header = updatedPost.Header;
+                    targetPost.Content = updatedPost.Content;
+                    
+
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    throw new InvalidOperationException("No such post!");
+                }
+            }
+        }
+
+        public void InsertNewBlogPost(Post newPost)
+        {
+            using (var _context = new BlogContext())
+            {
+                var blog =
+                    (from b in _context.Blogs
+                        where b.Id == 1
+                        select b).FirstOrDefault();
+
+                if (blog != null)
+                {
+                    blog.Posts.Add(newPost);
+                    _context.SaveChanges();
+                }
+            }
+        }
+
         public void CreatePost(string blogName, string header, string content)
         {
             using (var _context = new BlogContext())

@@ -52,6 +52,13 @@
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
 
                             <li>@Html.ActionLink("About", "Contact", "Home")</li>
+
+                            <li>@Html.ActionLink("New Blogpost", "Insert", "Blog")</li>
+
+                            <li>SubmitPost
+                                <p>@Html.ActionLink("Submit Post", "SubmitPost", new {id = 1})</p></li>
+
+                            <li>Edit<p>@Html.ActionLink("Edit Post", "Edit", new { id = 1 })</p></li>
                         </ul>
 
                     </div>

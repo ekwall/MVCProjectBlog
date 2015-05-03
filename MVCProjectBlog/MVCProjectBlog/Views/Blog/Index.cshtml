@@ -11,7 +11,7 @@
 
     @foreach (var item in Model.Posts)
     {
-
+       <p>@Html.ActionLink("Edit Post", "Edit", new { id = item.Id }) | @Html.ActionLink("Delete Post", "Delete", new { id = item.Id })</p>
 
         <div class="RobinLearnPostHeader">
             <tr>
@@ -21,6 +21,7 @@
                 <td>
                     <h2>@Html.DisplayFor(modelItem => item.Header)</h2>
                 </td>
+               
             </tr>
 
             <div class="RobinLearnPostContent">
@@ -31,10 +32,16 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Content)
                     </td>
-
                 </tr>
+                <tr>
 
+                    @foreach (var hashtag in item.Hashtags)
+                    {
+                        <td>@hashtag.Tag </td>
+                    }
+                </tr>
             </div>
+            
             @foreach (var comment in item.Comments)
             {
                 <div class="RobinLearingToComment">
@@ -86,7 +93,7 @@
 
             </div>
             <div class="col-md-12 sidebarContentPlaceholder">
-                <h5>Links</h5>
+                <h5>RSS FLOW</h5>
             </div>
             <div class="col-md-12 sidebarContentPlaceholder">
                 <h5>Placeholder</h5>
