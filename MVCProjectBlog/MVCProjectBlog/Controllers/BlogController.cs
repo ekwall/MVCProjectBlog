@@ -27,7 +27,7 @@ namespace MVCProjectBlog.Controllers
         return RedirectToAction("Index", new { BlogId = updated.Blog.Id });
         }
 
-        // GET: Blog
+        
         public ActionResult Index(string BlogId)
         {
 
@@ -49,24 +49,26 @@ namespace MVCProjectBlog.Controllers
             var db = new Repository();
             createdPost.DateTime = DateTime.Now;
         
-        db.InsertNewBlogPost(createdPost);
+        db.InsertNewBlogPost(createdPost, id);
 
         return RedirectToAction("Index", new { BlogId = id });
         }
 
-        public ActionResult Insert()
+        public ActionResult Insert(int id)
         {
-            
-
             return View();
         }
-
-        public ActionResult Post(string PostId)
+        [HttpPost]
+        public ActionResult Insert(int id, Post createdPost)
         {
 
-            var repository = new Repository();
-            var model = repository.ReturnBlogWithOnePost(PostId);
-            return View(model);
+            
+            var db = new Repository();
+            createdPost.DateTime = DateTime.Now;
+
+            db.InsertNewBlogPost(createdPost, id);
+
+            return RedirectToAction("Index", new { BlogId = id });
         }
 
         //public ActionResult Index(int Id)

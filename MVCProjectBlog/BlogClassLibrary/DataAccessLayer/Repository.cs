@@ -33,13 +33,13 @@ namespace BlogClassLibrary.DataAccessLayer
             }
         }
 
-        public void InsertNewBlogPost(Post newPost)
+        public void InsertNewBlogPost(Post newPost, int blogId)
         {
             using (var _context = new BlogContext())
             {
                 var blog =
                     (from b in _context.Blogs
-                        where b.Id == 1
+                     where b.Id == blogId
                         select b).FirstOrDefault();
 
                 if (blog != null)
@@ -178,7 +178,7 @@ namespace BlogClassLibrary.DataAccessLayer
                     from p in b.Posts
                     orderby p.DateTime descending
                     select p
-                    ).Take(5).ToList();
+                    ).Take(4).ToList();
         }
         public Blog GetPostWithBlogName(string blogName)
         {

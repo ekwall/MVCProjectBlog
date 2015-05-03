@@ -1,6 +1,10 @@
 ﻿@model BlogClassLibrary.Post
 
 @{
+    
+    ViewBag.HeaderMainText = Model.Blog.Name;
+    ViewBag.HeaderMainDescription = Model.Blog.Description;
+    ViewBag.HeaderImage = Model.Blog.BackgroundImage;
     ViewBag.Title = Model.Blog.Name + " | " + Model.Header ;
     Layout = "~/Views/Shared/_BlogLayout.cshtml";
 }

@@ -4,6 +4,7 @@
     ViewBag.HeaderMainText = Model.Name;
     ViewBag.HeaderMainDescription = Model.Description;
     ViewBag.HeaderImage = Model.BackgroundImage;
+    ViewBag.BlogId = Model.Id;
 }
 
 <div class="col-md-9 blogMainContent">
@@ -26,20 +27,18 @@
 
             <div class="RobinLearnPostContent">
 
+                @*@Html.DisplayFor(modelItem => item.Content)*@
+
+                @Html.Raw(item.Content)
+             
 
 
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Content)
-                    </td>
-                </tr>
-                <tr>
 
-                    @foreach (var hashtag in item.Hashtags)
+                @foreach (var hashtag in item.Hashtags)
                     {
-                        <td>@hashtag.Tag </td>
+                        @hashtag.Tag
                     }
-                </tr>
+                
             </div>
             
             @foreach (var comment in item.Comments)

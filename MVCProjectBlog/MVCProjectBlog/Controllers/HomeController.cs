@@ -21,7 +21,7 @@ namespace MVCProjectBlog.Controllers
         {
             var repository = new Repository();
             var model = repository.ReturnPostsToMainCarousell();
-            model = model.Take(5).ToList();
+            model = model.Take(4).ToList();
             return PartialView("CarousellPosts",model);
         }
         public ActionResult Register()
