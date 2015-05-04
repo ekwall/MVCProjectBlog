@@ -168,6 +168,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505041248447_AddedThreeUserFields.cs" />
+    <Compile Include="Migrations\201505041248447_AddedThreeUserFields.Designer.cs">
+      <DependentUpon>201505041248447_AddedThreeUserFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -526,6 +531,11 @@
       <Project>{f1b084e7-0e40-4f93-9770-2136cec2de3c}</Project>
       <Name>BlogClassLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505041248447_AddedThreeUserFields.resx">
+      <DependentUpon>201505041248447_AddedThreeUserFields.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

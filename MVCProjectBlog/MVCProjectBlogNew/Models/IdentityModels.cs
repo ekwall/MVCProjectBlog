@@ -1,6 +1,9 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Security.Claims;
+using System.Security.Permissions;
 using System.Threading.Tasks;
+using BlogClassLibrary;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -16,6 +19,12 @@ namespace MVCProjectBlogNew.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string BirthDate { get; set; }
+        public string Description { get; set; }
+        public string Country { get; set; }
+        public virtual List<Blog> Blogs  { get; set; }
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

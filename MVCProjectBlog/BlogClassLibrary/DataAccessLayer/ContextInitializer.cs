@@ -42,7 +42,7 @@ namespace BlogClassLibrary.DataAccessLayer
                                 },
                                 new Hashtag
                                 {
-                                    Tag = "Wookie"
+                                    Tag = "#Wookie"
                                 }
                             } }
                
