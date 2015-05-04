@@ -396,7 +396,6 @@
     <Content Include="Views\Home\CarousellPosts.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
-    <Content Include="Views\Home\_HashTags.cshtml" />
     <Content Include="Views\Blog\Post.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_full_compressed.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
@@ -406,6 +405,7 @@
     <Content Include="Views\Blog\SubmitPost.cshtml" />
     <Content Include="Views\Blog\Edit.cshtml" />
     <Content Include="Views\Blog\View.cshtml" />
+    <Content Include="Views\Home\_HashTags.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

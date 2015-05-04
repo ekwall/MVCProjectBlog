@@ -12,6 +12,15 @@ namespace MVCProjectBlog.Controllers
     public class BlogController : Controller
     {
 
+        public ActionResult Post(string PostId)
+        {
+            var db = new Repository();
+            var model = db.ReturnBlogWithOnePost(PostId);
+            return View(model);
+
+
+        }
+
         public ActionResult Edit(string id)
         {
             var db = new Repository();
