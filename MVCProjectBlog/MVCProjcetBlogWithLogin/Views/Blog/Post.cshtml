@@ -1,0 +1,19 @@
+﻿@model BlogClassLibrary.Post
+
+@{
+    
+    ViewBag.HeaderMainText = Model.Blog.Name;
+    ViewBag.HeaderMainDescription = Model.Blog.Description;
+    ViewBag.HeaderImage = Model.Blog.BackgroundImage;
+    ViewBag.Title = Model.Blog.Name + " | " + Model.Header ;
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+
+<h2>@Model.Header</h2>
+<p>@Model.Content</p>
+<p>Comments:</p>
+@foreach (var comment in Model.Comments)
+{
+    <p>@comment.Content</p>
+}
+

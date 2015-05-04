@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Styles/_LayoutStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/MainSiteScript.js"></script>
+
+    <!-- *** fonts **** -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+        
+    
+</head>
+<body>
+<!-- *** Main wrapper to put all content on the webbage in *** -->
+<div id="wrap">
+    <div class="navbar navbar-inverse navbar-fixed-top navigationFrameFullWidth">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("RAJ's Blog Portal...", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Placeholder", "About", "Home")</li>
+                    <li>@Html.ActionLink("Placeholder", "Contact", "Home")</li>
+                </ul>
+                @Html.Partial("_Login")
+                
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="container contentWrapper">
+        <div class="row mainHeader">
+            <div class="col-md-12 BlogLinkContent">
+                @RenderBody()
+            </div>
+
+
+        </div> <!-- *** row end *** -->
+    </div> <!-- ** container end ** -->
+  
+</div> <!-- *** #wrap end *** -->
+<footer id="footer">
+    <div class="container">® @DateTime.Now.Date - Blogging with RAJ </div>
+</footer>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
+

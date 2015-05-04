@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogClassLibrary", "BlogCla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddBlogsAndUsersWinForm", "AddBlogsAndUsersWinForm\AddBlogsAndUsersWinForm.csproj", "{95292360-7B05-4E53-83DA-44EFC114CDE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCProjectBlogNew", "MVCProjectBlogNew\MVCProjectBlogNew.csproj", "{0DCA228F-D993-4C05-B1BE-6E6072EDA0A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{95292360-7B05-4E53-83DA-44EFC114CDE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95292360-7B05-4E53-83DA-44EFC114CDE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95292360-7B05-4E53-83DA-44EFC114CDE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DCA228F-D993-4C05-B1BE-6E6072EDA0A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DCA228F-D993-4C05-B1BE-6E6072EDA0A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DCA228F-D993-4C05-B1BE-6E6072EDA0A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DCA228F-D993-4C05-B1BE-6E6072EDA0A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
