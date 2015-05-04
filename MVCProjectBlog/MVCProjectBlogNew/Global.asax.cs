@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using BlogClassLibrary.DataAccessLayer;
+using MVCProjectBlogNew.Models;
+
 
 namespace MVCProjectBlogNew
 {
@@ -19,6 +21,7 @@ namespace MVCProjectBlogNew
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Database.SetInitializer(new ContextInitializer());
+            Database.SetInitializer<ApplicationDbContext>(null);
 
        
         }

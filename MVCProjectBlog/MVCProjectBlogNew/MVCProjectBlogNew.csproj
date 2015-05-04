@@ -172,6 +172,22 @@
     <Compile Include="Migrations\201505041248447_AddedThreeUserFields.Designer.cs">
       <DependentUpon>201505041248447_AddedThreeUserFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505042045289_shitShitShit.cs" />
+    <Compile Include="Migrations\201505042045289_shitShitShit.Designer.cs">
+      <DependentUpon>201505042045289_shitShitShit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505042100538_Init.cs" />
+    <Compile Include="Migrations\201505042100538_Init.Designer.cs">
+      <DependentUpon>201505042100538_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505042224238_convertedIdToInt.cs" />
+    <Compile Include="Migrations\201505042224238_convertedIdToInt.Designer.cs">
+      <DependentUpon>201505042224238_convertedIdToInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505042257376_hej.cs" />
+    <Compile Include="Migrations\201505042257376_hej.Designer.cs">
+      <DependentUpon>201505042257376_hej.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -535,6 +551,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201505041248447_AddedThreeUserFields.resx">
       <DependentUpon>201505041248447_AddedThreeUserFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505042045289_shitShitShit.resx">
+      <DependentUpon>201505042045289_shitShitShit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505042100538_Init.resx">
+      <DependentUpon>201505042100538_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505042224238_convertedIdToInt.resx">
+      <DependentUpon>201505042224238_convertedIdToInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505042257376_hej.resx">
+      <DependentUpon>201505042257376_hej.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
