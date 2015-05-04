@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BlogClassLibrary;
 using BlogClassLibrary.DataAccessLayer;
 
 namespace MVCProjectBlog.Controllers
@@ -24,11 +25,22 @@ namespace MVCProjectBlog.Controllers
             model = model.Take(4).ToList();
             return PartialView("CarousellPosts",model);
         }
+        [HttpPost]
+        public ActionResult Register(Owner owner)
+        {
+            var Db = new Repository();
+            Db.AddNewOwnerAccount(owner);
+            
+
+            return View(owner);
+        }
         public ActionResult Register()
         {
-
-            return View();
+            var model = new Owner();
+            return View(model);
         }
+
+
 
         public ActionResult Login()
         {
@@ -41,6 +53,11 @@ namespace MVCProjectBlog.Controllers
             var repository = new Repository();
             var model = repository.ReturnTenHashtags();
             return PartialView("_Hashtags",model);
+        }
+
+        public ActionResult About()
+        {
+            return View();
         }
     }
 }

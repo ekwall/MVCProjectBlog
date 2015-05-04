@@ -188,5 +188,12 @@ namespace BlogClassLibrary.DataAccessLayer
                     where b.Name == blogName
                     select b).FirstOrDefault();
         }
+
+        public void AddNewOwnerAccount(Owner owner)
+        {
+            var _context = new BlogContext();
+            _context.Owners.Add(owner);
+            _context.SaveChanges();
+        }
     }
 }
