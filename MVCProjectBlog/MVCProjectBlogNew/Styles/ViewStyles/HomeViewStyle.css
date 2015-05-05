@@ -12,8 +12,15 @@
     transition: box-shadow 0.3s ease;
 }
 
-.carousel-inner {
+.carousel {
     box-shadow: 5px 5px 5px #888888;
+    transition: box-shadow 0.3s ease;
+}
+
+.carousel:hover {
+    transition: box-shadow 0.1s ease;
+    box-shadow: 10px 10px 10px #888888;
+    cursor: pointer;
 }
 
 .CarouselH3 {
@@ -60,6 +67,14 @@
     margin-top: 25px;
     margin-bottom: 30px;
 }
+
+
+
+
+
+
+
+
 .HashtagParagraph {
     display: block;
     float: left;

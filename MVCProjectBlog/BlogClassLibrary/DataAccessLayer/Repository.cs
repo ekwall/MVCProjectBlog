@@ -220,5 +220,15 @@ namespace BlogClassLibrary.DataAccessLayer
                         select p).ToList();
             }
         }
+
+        public List<Blog> ReturnUserLoggedInBlogs(string userName)
+        {
+            using (var _context = new BlogContext())
+            {
+                return (from b in _context.Blogs
+                    where b.Owner.UserName == userName
+                    select b).ToList();
+            }
+        }
     }
 }

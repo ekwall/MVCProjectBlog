@@ -1,12 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using BlogClassLibrary;
 using BlogClassLibrary.DataAccessLayer;
-using MVCProjectBlogNew.Models;
+using Microsoft.AspNet.Identity;
+using System;
+using System.Globalization;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using WebApplication6.Models;
+
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Host.SystemWeb;
+
+
 
 namespace MVCProjectBlogNew.Controllers
 {
@@ -31,9 +48,9 @@ namespace MVCProjectBlogNew.Controllers
                 if (userId > 0)
                 {
                    
-                    FormsAuthentication.SetAuthCookie(owner.UserName, createPersistentCookie: true);
+                    FormsAuthentication.SetAuthCookie(owner.UserName, createPersistentCookie: false);
                     return RedirectToAction("Index", "Home");
-                    return View(new Owner()); 
+                    
                     
                     
                 }

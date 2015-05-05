@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BlogClassLibrary;
 
 using BlogClassLibrary.DataAccessLayer;
+using Microsoft.AspNet.Identity;
 
 namespace MVCProjectBlog.Controllers
 {
@@ -45,12 +46,14 @@ namespace MVCProjectBlog.Controllers
             return View(model);
 
         }
-
+        [Authorize]
         public ActionResult SubmitPost(int id)
         {
+            
+
             return View();
         }
-
+        [Authorize]
         [HttpPost]
         public ActionResult SubmitPost(int id, Post createdPost)
         {

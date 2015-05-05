@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using BlogClassLibrary;
 
-namespace MVCProjectBlogNew.Models
+namespace WebApplication6.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
@@ -65,12 +64,6 @@ namespace MVCProjectBlogNew.Models
 
     public class RegisterViewModel
     {
-        public string BirthDate { get; set; }
-        public string Description { get; set; }
-        public string Country { get; set; }
-        public virtual List<Blog> Blogs { get; set; }
-
-
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

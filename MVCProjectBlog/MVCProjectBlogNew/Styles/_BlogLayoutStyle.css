@@ -13,7 +13,8 @@ p,a,span,li,nav,footer {
 }
 
 .mainHeader {
-
+      padding-right: 0px;
+        padding-left: 0px;
     
 
     height: 300px;

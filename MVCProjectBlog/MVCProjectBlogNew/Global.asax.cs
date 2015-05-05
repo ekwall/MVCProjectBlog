@@ -7,7 +7,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using BlogClassLibrary.DataAccessLayer;
-using MVCProjectBlogNew.Models;
+
+using WebApplication6.Models;
 
 
 namespace MVCProjectBlogNew
