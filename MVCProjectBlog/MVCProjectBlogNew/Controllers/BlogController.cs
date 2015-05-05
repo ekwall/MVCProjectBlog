@@ -91,6 +91,12 @@ namespace MVCProjectBlog.Controllers
         //        return HttpNotFound();
         //}
 
+        public ActionResult GetPostsWithHashtags(string tag)
+        {
+            Repository DB = new Repository();
+            var model = DB.GetAllPostsContainingSpecificHashtag(tag);
+            return View(model);
+        }
         
     }
 }

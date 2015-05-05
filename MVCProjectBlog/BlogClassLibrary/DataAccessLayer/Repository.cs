@@ -195,5 +195,30 @@ namespace BlogClassLibrary.DataAccessLayer
             _context.Owners.Add(owner);
             _context.SaveChanges();
         }
+
+        public int CheckLogin(Owner owner)
+        {
+            using (var _context = new BlogContext())
+            {
+                var query =
+                    (from o in _context.Owners
+                        where o.UserName == owner.UserName && o.Password == owner.Password
+                        select o.Id).FirstOrDefault();
+                return query;
+            }
+            return 0;
+
+        }
+
+        public List<Post> GetAllPostsContainingSpecificHashtag(string hashtag)
+        {
+            using (var _context = new BlogContext())
+            {
+                return (from p in _context.Posts
+                        from h in p.Hashtags
+                        where h.Tag == hashtag
+                        select p).ToList();
+            }
+        }
     }
 }

@@ -163,32 +163,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505041248447_AddedThreeUserFields.cs" />
-    <Compile Include="Migrations\201505041248447_AddedThreeUserFields.Designer.cs">
-      <DependentUpon>201505041248447_AddedThreeUserFields.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505042045289_shitShitShit.cs" />
-    <Compile Include="Migrations\201505042045289_shitShitShit.Designer.cs">
-      <DependentUpon>201505042045289_shitShitShit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505042100538_Init.cs" />
-    <Compile Include="Migrations\201505042100538_Init.Designer.cs">
-      <DependentUpon>201505042100538_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505042224238_convertedIdToInt.cs" />
-    <Compile Include="Migrations\201505042224238_convertedIdToInt.Designer.cs">
-      <DependentUpon>201505042224238_convertedIdToInt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505042257376_hej.cs" />
-    <Compile Include="Migrations\201505042257376_hej.Designer.cs">
-      <DependentUpon>201505042257376_hej.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -531,6 +511,8 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\tinymce_full.cshtml" />
     <Content Include="Views\Home\tinymce_full_compressed.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Blog\GetPostsWithHashtags.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -547,23 +529,6 @@
       <Project>{f1b084e7-0e40-4f93-9770-2136cec2de3c}</Project>
       <Name>BlogClassLibrary</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505041248447_AddedThreeUserFields.resx">
-      <DependentUpon>201505041248447_AddedThreeUserFields.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505042045289_shitShitShit.resx">
-      <DependentUpon>201505042045289_shitShitShit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505042100538_Init.resx">
-      <DependentUpon>201505042100538_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505042224238_convertedIdToInt.resx">
-      <DependentUpon>201505042224238_convertedIdToInt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505042257376_hej.resx">
-      <DependentUpon>201505042257376_hej.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
