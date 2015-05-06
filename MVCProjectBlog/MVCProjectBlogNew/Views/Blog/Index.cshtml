@@ -20,19 +20,19 @@
 </script>
 
 <div class="col-md-9 blogMainContent">
-    <h2>This is a Blog with many posts</h2>
+    @*<h2>@Model.Name</h2>*@
 
     @foreach (var item in Model.Posts)
     {
-       <p>@Html.ActionLink("Edit Post", "Edit", new { id = item.Id }) | @Html.ActionLink("Delete Post", "Delete", new { id = item.Id })</p>
+       
 
         <div class="RobinLearnPostHeader">
             <tr>
+                
                 <td>
-                    @Html.DisplayFor(modelItem => item.DateTime)
-                </td>
-                <td>
-                    <h2>@Html.DisplayFor(modelItem => item.Header)</h2>
+
+                    <h2>@Html.ActionLink(item.Header, "Post", "Blog", new {PostId = item.Id}, null)</h2>
+                    <p>@Html.ActionLink("Edit Post", "Edit", new { id = item.Id }) | @Html.ActionLink("Delete Post", "Delete", new { id = item.Id })</p>
                 </td>
 
             </tr>
@@ -44,24 +44,38 @@
                 @Html.Raw(item.Content)
 
 
-
+                <br/>
 
                 @foreach (var hashtag in item.Hashtags)
                 {
-                    @Html.ActionLink(hashtag.Tag, "GetPostsWithHashtags", "Blog", new {tag = hashtag.Tag}, null)
+                    @Html.ActionLink(hashtag.Tag + "  ", "GetPostsWithHashtags", "Blog", new {tag = hashtag.Tag}, null)
                 }
-
+                <br/>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTime)
+                    
+                </td>
             </div>
 
-            <div class="fb-like" data-href="https://hd.se" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
+
+            <div class="fb-like" data-href="http://mountainpower.se/Blog/Post?PostId=@item.Id" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
             </div>
 
-            <div class="AddCommentToPost col-md-12">
-                @Html.Action("PostANewComment", new {Postid = item.Id})
 
+
+            <a class="fadein">Post</a>
+            @*<a class="fadeout">Comments</a>*@
+
+
+
+
+            <div class="fadeInCommentTest"><p>@item.Comments.Count Comments </p>
+                <div class="testHideDivId col-md-12">
+                    @Html.Action("PostANewComment", new { Postid = item.Id })
+
+                </div>
             </div>
-
-        </div>
+</div>
         
             foreach (var comment in item.Comments)
             {

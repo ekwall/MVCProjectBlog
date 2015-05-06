@@ -128,9 +128,9 @@ namespace MVCProjectBlog.Controllers
         public ActionResult Delete(int id)
         {
             var db = new Repository();
-            
+            var blogId = db.GetBlogIdFromPostId(id);
             db.DeletePost(id);
-            return RedirectToAction("Index", new { BlogId = db.GetBlogIdFromPostId(id) });
+            return RedirectToAction("Index", new { BlogId = blogId });
         }
     }
 }

@@ -284,12 +284,13 @@ namespace BlogClassLibrary.DataAccessLayer
             {
                 var hashtags =
                     (from h in _context.Hashtags
-                        where h.Post.Id == id
+                        where h.Id == id
                         select h).ToList();
                 int count = hashtags.Count;
-                for (int i = 0; i <= count; i++)
+                for (int i = 0; i <= count-1; i++)
                 {
-                    hashtags.Remove(hashtags[i]);
+                    
+                    _context.Hashtags.Remove(hashtags[i]);
                 }
                 _context.SaveChanges();
             }
@@ -300,7 +301,7 @@ namespace BlogClassLibrary.DataAccessLayer
             {
                 var links =
                     (from l in _context.Links
-                     where l.Blog.Id == id
+                     where l.Id == id
                      select l).ToList();
                 int count = links.Count;
                 for (int i = 0; i <= count; i++)
@@ -316,12 +317,15 @@ namespace BlogClassLibrary.DataAccessLayer
             {
                 var comments =
                     (from l in _context.Comments
-                     where l.Post.Id == id
+                     where l.Id == id
                      select l).ToList();
                 int count = comments.Count;
-                for (int i = 0; i <= count; i++)
+                for (int i = 0; i <= count-1; i++)
                 {
-                    comments.Remove(comments[i]);
+                    
+                    _context.Comments.Remove(comments[i]);
+
+                        
                 }
                 _context.SaveChanges();
             }
@@ -344,8 +348,13 @@ namespace BlogClassLibrary.DataAccessLayer
                 var query =
                     (from p in _context.Posts
                         where p.Id == id
-                        select p).FirstOrDefault();
-                _context.Posts.Remove(query);
+                        select p).ToList();
+                int count = query.Count;
+                for (int i = 0; i <= count-1; i++)
+                {
+                    _context.Posts.Remove(query[i]);
+                }
+
                 _context.SaveChanges();
             }
         }
