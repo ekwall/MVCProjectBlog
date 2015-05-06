@@ -7,34 +7,30 @@
     });
 
 
-    
+    startUp();
 
-//    $(".AvailableBlogsContainer").click(
-//    function(){$(this).animate({width: "400px", height:"400px"}, 500);},        
-//    function(){$(this).animate({width: "400px", height:"400px"}, 500);}
-    //);
 
-    $(".fadeInCommentTest").click(
+    $(".fadeToggleClass").click(
         function() {
-
-            runEffect();
+            var pressedElement = $(this);
+            runEffect(pressedElement);
         });
 
     $(".fadeout").click(
         function () {
 
-            fadeOut();
+            fadeIn();
         });
 
 
 
 });
 
-function runEffect() {
-    // get effect type from
-
-
-    $(".fadeInCommentTest > div").fadeOut();
+function runEffect(pressedElement) {
+   
+    
+    pressedElement.next().fadeToggle();
+        //.fadeToggle();
 };
 
 function fadeOut() {
@@ -43,3 +39,7 @@ function fadeOut() {
 
     $(".testHideDivId").fadeOut();
 };
+
+function startUp() {
+    $(".testHideDivId").hide();
+}

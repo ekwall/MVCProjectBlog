@@ -92,3 +92,16 @@ p,a,span,li,nav,footer {
 .sidebarContentPlaceholder {
     height: 150px;
 }
+
+.fadeToggleClass:hover {
+    cursor: pointer;
+    color: white;
+}
+
+/*.RobinLearingToComment {
+    background-color: #f5f5f5;
+}
+
+.RobinLearingToComment:nth-child(even) {
+    background-color: lightgray;
+}*/

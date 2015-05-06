@@ -1,4 +1,5 @@
 ﻿@using Antlr.Runtime
+@using Microsoft.AspNet.Identity
 @model BlogClassLibrary.Blog
 @{
     ViewBag.Title = Model.Name;
@@ -20,92 +21,62 @@
 </script>
 
 <div class="col-md-9 blogMainContent">
-    @*<h2>@Model.Name</h2>*@
+    <article class="col-md-12 blogPost">
+        @foreach (var item in Model.Posts)
+        {
+            <div class="col-md-12 RobinLearnPostHeader">
 
-    @foreach (var item in Model.Posts)
-    {
-       
-
-        <div class="RobinLearnPostHeader">
-            <tr>
-                
-                <td>
-
-                    <h2>@Html.ActionLink(item.Header, "Post", "Blog", new {PostId = item.Id}, null)</h2>
+                <h2>@Html.ActionLink(item.Header, "Post", "Blog", new { PostId = item.Id }, null)</h2>
+                @if (User.Identity.IsAuthenticated && Model.Owner.UserName == User.Identity.GetUserName())
+                {
                     <p>@Html.ActionLink("Edit Post", "Edit", new { id = item.Id }) | @Html.ActionLink("Delete Post", "Delete", new { id = item.Id })</p>
-                </td>
+                }
+                
+            </div>
 
-            </tr>
-
-            <div class="RobinLearnPostContent">
-
-                @*@Html.DisplayFor(modelItem => item.Content)*@
-
-                @Html.Raw(item.Content)
-
-
-                <br/>
+            <div class="col-md-12 RobinLearnPostContent">
+                
+                <p>@Html.Raw(item.Content)</p>
 
                 @foreach (var hashtag in item.Hashtags)
                 {
-                    @Html.ActionLink(hashtag.Tag + "  ", "GetPostsWithHashtags", "Blog", new {tag = hashtag.Tag}, null)
+                    @Html.ActionLink(hashtag.Tag + "  ", "GetPostsWithHashtags", "Blog", new { tag = hashtag.Tag }, null)
                 }
-                <br/>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateTime)
-                    
-                </td>
-            </div>
+                <br />
+               
+                <p>Post created :@Html.DisplayFor(modelItem => item.DateTime)</p>
 
+            </div>
 
             <div class="fb-like" data-href="http://mountainpower.se/Blog/Post?PostId=@item.Id" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
             </div>
 
-
-
-            <a class="fadein">Post</a>
-            @*<a class="fadeout">Comments</a>*@
-
-
-
-
-            <div class="fadeInCommentTest"><p>@item.Comments.Count Comments </p>
+            <div class="fadeInCommentTest">
+                <div class="fadeToggleClass"><p>@item.Comments.Count Comments</p></div>
                 <div class="testHideDivId col-md-12">
-                    @Html.Action("PostANewComment", new { Postid = item.Id })
+                    @foreach (var comment in item.Comments)
+                    {
+                        <div class="RobinLearingToComment col-md-12">
+                            @*@Html.DisplayFor(modelItem => comment.DateTime)*@
+                            @Html.DisplayFor(modelItem => comment.Author):
+                            @Html.DisplayFor(modelItem => comment.Content)
+                            <br/>
+                            
+                        </div>
+                    }
+
+                    @Html.Action("PostANewComment", new {Postid = item.Id})
 
                 </div>
             </div>
-</div>
+
         
-            foreach (var comment in item.Comments)
-            {
-                <div class="RobinLearingToComment col-md-12">
+        }
 
-                    This is a comment to the post
-
-
-
-                    <td>@Html.DisplayFor(modelItem => comment.DateTime)</td>
-                    <td>@Html.DisplayFor(modelItem => comment.Author)</td>
-                    <td>@Html.DisplayFor(modelItem => comment.Content)</td>
-
-                </div>
-            }
-        
-    }
-    @foreach (var post in Model.Posts)
-    {
-        <div class="editor-label">
-            @Html.LabelFor(singlePost => singlePost.Description)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(posts => post.Content)
-            @Html.ValidationMessageFor(posts => post.Content)
-        </div>
-    }
-    
+    </article>
 
 </div>
+
 
 <div class="col-md-3 blogSideContent">
 
