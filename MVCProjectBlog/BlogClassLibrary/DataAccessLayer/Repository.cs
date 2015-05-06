@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Web.WebPages;
 
 namespace BlogClassLibrary.DataAccessLayer
 {
@@ -77,6 +80,18 @@ namespace BlogClassLibrary.DataAccessLayer
                 select p).FirstOrDefault();
         }
 
+        public int GetBlogIdFromPostId(int postId)
+        {
+            using (var _context = new BlogContext())
+            {
+                var id =
+                    (from b in _context.Blogs
+                        from p in b.Posts
+                        where p.Id == postId
+                        select b.Id).FirstOrDefault();
+                return id;
+            }
+        }
         public Blog GetBlogWithId(int Id)
         {
             var bloglist = ReturnBlogs();
@@ -229,6 +244,151 @@ namespace BlogClassLibrary.DataAccessLayer
                     where b.Owner.UserName == userName
                     select b).ToList();
             }
+        }
+
+        public List<int> ReturnAllHashtagsFromPostId(int postId)
+        {
+            using (var _context = new BlogContext())
+            {
+                return (from h in _context.Hashtags
+                    where h.Post.Id == postId
+                    select h.Id).ToList();
+            }
+        }
+
+        public void AddCommentToPost(Comment comment, int Id)
+        {
+            using (var _context = new BlogContext())
+            {
+                var post =
+                    (from p in _context.Posts
+                        where p.Id == Id
+                        select p).FirstOrDefault();
+
+                if (post != null)
+                {
+                    if (comment.Author.IsEmpty())
+                        comment.Author = "Guest";
+
+                    comment.DateTime = DateTime.Now;
+                    post.Comments.Add(comment);
+                    _context.SaveChanges();
+                }
+
+            }
+        }
+
+        public void DeleteHashtags(int id) // <--Get Post ID
+        {
+            using (var _context = new BlogContext())
+            {
+                var hashtags =
+                    (from h in _context.Hashtags
+                        where h.Post.Id == id
+                        select h).ToList();
+                int count = hashtags.Count;
+                for (int i = 0; i <= count; i++)
+                {
+                    hashtags.Remove(hashtags[i]);
+                }
+                _context.SaveChanges();
+            }
+        }
+        public void DeleteLinks(int id) // <--Get Blog ID
+        {
+            using (var _context = new BlogContext())
+            {
+                var links =
+                    (from l in _context.Links
+                     where l.Blog.Id == id
+                     select l).ToList();
+                int count = links.Count;
+                for (int i = 0; i <= count; i++)
+                {
+                    links.Remove(links[i]);
+                }
+                _context.SaveChanges();
+            }
+        }
+        public void DeleteComments(int id) // <--Get Post ID
+        {
+            using (var _context = new BlogContext())
+            {
+                var comments =
+                    (from l in _context.Comments
+                     where l.Post.Id == id
+                     select l).ToList();
+                int count = comments.Count;
+                for (int i = 0; i <= count; i++)
+                {
+                    comments.Remove(comments[i]);
+                }
+                _context.SaveChanges();
+            }
+        }
+        public void DeletePost(int id) // <--Get Blog ID
+        {
+            var hashtagIdList = ReturnAllHashtagsFromPostId(id);
+            foreach (var hashtag in hashtagIdList)
+            {
+                DeleteHashtags(hashtag);
+            }
+            var commentsIdList = ReturnAllCommentsFromPostId(id);
+            foreach (var comment in commentsIdList)
+            {
+                DeleteComments(comment);
+            }
+            
+            using (var _context = new BlogContext())
+            {
+                var query =
+                    (from p in _context.Posts
+                        where p.Id == id
+                        select p).FirstOrDefault();
+                _context.Posts.Remove(query);
+                _context.SaveChanges();
+            }
+        }
+
+        private List<int> ReturnAllCommentsFromPostId(int postId)
+        {
+            using (var _context = new BlogContext())
+            {
+                return (from c in _context.Comments
+                        where c.Post.Id == postId
+                        select c.Id).ToList();
+            }
+        }
+
+        public void DeleteBlogs(int blogId) // <--Get Blog ID
+        {
+            using (var _context = new BlogContext())
+            {
+                var posts =
+                    (from p in _context.Posts
+                        where p.Blog.Id == blogId
+                        select p).ToList();
+                int count = posts.Count;
+                for (int i = 0; i <= count; i++)
+                {
+                    DeletePost(posts[i].Id);
+                }
+                _context.SaveChanges();
+            }
+            
+            //using (var _context = new BlogContext())
+            //{
+            //    var blogs =
+            //        (from l in _context.Blogs
+            //         where l.Owner.Id == id
+            //         select l).ToList();
+            //    int count = blogs.Count;
+            //    for (int i = 0; i < count; i++)
+            //    {
+            //        blogs.Remove(blogs[i]);
+            //    }
+            //    _context.SaveChanges();
+            //}
         }
     }
 }

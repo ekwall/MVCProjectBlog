@@ -518,6 +518,8 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Blog\GetPostsWithHashtags.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Blog\PostANewComment.cshtml" />
+    <Content Include="Views\Blog\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

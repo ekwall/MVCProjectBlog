@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
     <None Include="Views\Shared\EditorTemplates\tinymce_full_compressed.cshtml" />

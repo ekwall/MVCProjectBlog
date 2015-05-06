@@ -34,7 +34,8 @@ namespace MVCProjectBlog.Controllers
         {
             var db = new Repository();
         db.UpdatePost(updated);
-        return RedirectToAction("Index", new { BlogId = updated.Blog.Id });
+
+        return RedirectToAction("Index", new { BlogId = db.GetBlogIdFromPostId(updated.Id) });
         }
 
         
@@ -78,7 +79,7 @@ namespace MVCProjectBlog.Controllers
             var db = new Repository();
             createdPost.DateTime = DateTime.Now;
 
-            db.InsertNewBlogPost(createdPost, id);
+            db.InsertNewBlogPost(createdPost,id);
 
             return RedirectToAction("Index", new { BlogId = id });
         }
@@ -100,6 +101,36 @@ namespace MVCProjectBlog.Controllers
             var model = DB.GetAllPostsContainingSpecificHashtag(tag);
             return View(model);
         }
-        
+
+        public ActionResult PostANewComment(int Postid)
+        {
+            var model = new Comment();
+            return PartialView(model);
+        }
+        [HttpPost]
+        public ActionResult PostANewComment(Comment comment, int Postid)
+        {
+
+            var DB = new Repository();
+            DB.AddCommentToPost(comment,Postid);
+            var model = new Comment();
+            return PartialView(model);
+        }
+
+        public ActionResult Delete(string id)
+        {
+            var DB = new Repository();
+            var model = DB.ReturnBlogWithOnePost(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var db = new Repository();
+            
+            db.DeletePost(id);
+            return RedirectToAction("Index", new { BlogId = db.GetBlogIdFromPostId(id) });
+        }
     }
 }
