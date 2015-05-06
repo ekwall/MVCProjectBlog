@@ -392,7 +392,8 @@ namespace WebApplication6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+
+           
             HttpCookie cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, "");
             cookie1.Expires = DateTime.Now.AddYears(-1);
             Response.Cookies.Add(cookie1);
