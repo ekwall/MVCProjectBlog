@@ -122,6 +122,9 @@ ul {
     list-style: none;
 }
 
+#footer-text {
+    float: none;
+}
 
 
 

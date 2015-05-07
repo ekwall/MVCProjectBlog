@@ -459,6 +459,7 @@
     <Content Include="Scripts\tinymce\utils\mctabs.js" />
     <Content Include="Scripts\tinymce\utils\validate.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Styles\ShareStyle.css" />
     <Content Include="Styles\ViewStyles\HomeViewStyle.css" />
     <Content Include="Styles\ViewStyles\HomeViewStyleTest.css" />
     <Content Include="Styles\_BlogLayoutStyle.css" />

@@ -58,10 +58,10 @@
                     {
                         <div class="RobinLearingToComment col-md-12">
                             @*@Html.DisplayFor(modelItem => comment.DateTime)*@
-                            @Html.DisplayFor(modelItem => comment.Author):
-                            @Html.DisplayFor(modelItem => comment.Content)
-                            <br/>
-                            
+                            <strong>@Html.DisplayFor(modelItem => comment.Author):</strong> <br/>
+                            @Html.DisplayFor(modelItem => comment.Content)<br/>
+                            @Html.DisplayFor(modelItem => comment.DateTime)
+                            <hr/>
                         </div>
                     }
 

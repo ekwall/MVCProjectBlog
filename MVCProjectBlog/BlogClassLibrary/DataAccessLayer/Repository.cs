@@ -230,6 +230,7 @@ namespace BlogClassLibrary.DataAccessLayer
         public void AddNewOwnerAccount(Owner owner)
         {
             var _context = new BlogContext();
+            owner.Password = owner.Password.GetHashCode().ToString();
             _context.Owners.Add(owner);
             _context.SaveChanges();
         }
@@ -238,6 +239,7 @@ namespace BlogClassLibrary.DataAccessLayer
         {
             using (var _context = new BlogContext())
             {
+                owner.Password = owner.Password.GetHashCode().ToString();
                 var query =
                     (from o in _context.Owners
                         where o.UserName == owner.UserName && o.Password == owner.Password
