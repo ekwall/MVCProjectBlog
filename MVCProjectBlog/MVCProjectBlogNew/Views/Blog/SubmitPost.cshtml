@@ -8,23 +8,21 @@
 
 @using (Html.BeginForm())
 {
-    <p>Enter Headline<br/>
+    <p>
+        Enter Headline<br />
         @Html.TextArea("Header")
     </p>
     <p>
-        Enter content<br/>
+        Enter content<br />
         @Html.TextArea("Content")
     </p>
-    @*<p>
-        Enter Date<br/>
-        @Html.TextArea("DateTime")
-    </p>*@
+
     <p>
-        Enter Postimage<br/>
-        @Html.TextArea("Postimage")
+        Enter Hashtags<br />
+        @Html.TextArea("Hashtags")
     </p>
-   
 
 
-    <input type ="submit" value="Submit review" />
+
+    <input type="submit" value="Submit review" />
 }

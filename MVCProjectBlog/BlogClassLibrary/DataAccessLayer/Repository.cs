@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.WebPages;
+using MVCProjectBlogNew.Models;
 
 namespace BlogClassLibrary.DataAccessLayer
 {
@@ -36,10 +37,20 @@ namespace BlogClassLibrary.DataAccessLayer
             }
         }
 
-        public void InsertNewBlogPost(Post newPost, int blogId)
+        public void InsertNewBlogPost(CreateBlogPost newPost, int blogId)
         {
             using (var _context = new BlogContext())
             {
+
+
+                var convertToPost = new Post();
+
+                convertToPost.Hashtags = ConvertStringToHashtagList(newPost.Hashtags);
+                convertToPost.DateTime = DateTime.Now;
+                convertToPost.Header = newPost.Header;
+                convertToPost.Content = newPost.Content;
+                
+
                 var blog =
                     (from b in _context.Blogs
                      where b.Id == blogId
@@ -47,10 +58,22 @@ namespace BlogClassLibrary.DataAccessLayer
 
                 if (blog != null)
                 {
-                    blog.Posts.Add(newPost);
+                    blog.Posts.Add(convertToPost);
                     _context.SaveChanges();
                 }
             }
+        }
+
+        private List<Hashtag> ConvertStringToHashtagList(string hashtags)
+        {
+            var hashtagList = new List<Hashtag>();
+            
+            string[] stringList = hashtags.Split(' ');
+            foreach (var hastagValue in stringList)
+            {
+                hashtagList.Add(new Hashtag() { Tag = hastagValue });
+            }
+            return hashtagList;
         }
 
         public void CreatePost(string blogName, string header, string content)

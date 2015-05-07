@@ -10,8 +10,6 @@ namespace MVCProjectBlogNew.Models
     {
         public string Header { get; set; }
         public string Content { get; set; }
-        public DateTime DateTime { get; set; }
-        public string Postimage { get; set; }
         public string Hashtags { get; set; }
     }
 }

@@ -174,7 +174,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CreateBlogPost.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -506,7 +505,7 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\Insert.cshtml" />
     <Content Include="Views\Blog\Post.cshtml" />
-    <Content Include="Views\Blog\SubmitPost.cshtml" />
+    <Content Include="Views\Blog\SubmitPost2.cshtml" />
     <Content Include="Views\Blog\tinymce_full.cshtml" />
     <Content Include="Views\Blog\tinymce_full_compressed.cshtml" />
     <Content Include="Views\Blog\View.cshtml" />
@@ -526,6 +525,7 @@
     <Content Include="Views\Home\_SearchResult.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\CreateBlog.cshtml" />
+    <Content Include="Views\Blog\SubmitPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

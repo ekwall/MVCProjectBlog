@@ -79,6 +79,7 @@
     <Compile Include="DataAccessLayer\Repository.cs" />
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\CreateBlogPost.cs" />
     <Compile Include="Models\Hashtag.cs" />
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\Owner.cs" />

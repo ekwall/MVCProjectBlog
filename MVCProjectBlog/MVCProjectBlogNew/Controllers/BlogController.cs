@@ -7,6 +7,7 @@ using BlogClassLibrary;
 
 using BlogClassLibrary.DataAccessLayer;
 using Microsoft.AspNet.Identity;
+using MVCProjectBlogNew.Models;
 
 namespace MVCProjectBlog.Controllers
 {
@@ -50,17 +51,16 @@ namespace MVCProjectBlog.Controllers
         [Authorize]
         public ActionResult SubmitPost(int id)
         {
-            
+
 
             return View();
         }
         [Authorize]
         [HttpPost]
-        public ActionResult SubmitPost(int id, Post createdPost)
+        public ActionResult SubmitPost(int id, CreateBlogPost createdPost)
         {
             //createdPost.Blog.Id = id;
             var db = new Repository();
-            createdPost.DateTime = DateTime.Now;
         
         db.InsertNewBlogPost(createdPost, id);
 
@@ -72,12 +72,12 @@ namespace MVCProjectBlog.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Insert(int id, Post createdPost)
+        public ActionResult Insert(int id, CreateBlogPost createdPost)
         {
 
             
             var db = new Repository();
-            createdPost.DateTime = DateTime.Now;
+            
 
             db.InsertNewBlogPost(createdPost,id);
 
