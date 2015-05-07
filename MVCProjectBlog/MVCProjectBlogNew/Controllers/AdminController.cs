@@ -15,7 +15,7 @@ namespace MVCProjectBlogNew.Controllers
         public ActionResult Index()
         {
             var db = new Repository();
-            var model = db.ReturnUserLoggedInBlogs(User.Identity.Name);
+            var model = db.ReturnLoggedInOwner(User.Identity.Name);
             return View(model);
         }
     }

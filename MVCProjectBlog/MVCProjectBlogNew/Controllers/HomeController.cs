@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BlogClassLibrary;
 using BlogClassLibrary.DataAccessLayer;
+using Microsoft.AspNet.Identity;
 
 namespace MVCProjectBlog.Controllers
 {
@@ -73,5 +74,24 @@ namespace MVCProjectBlog.Controllers
             var db = new Repository();
             return Json(db.GetHashtagsThatContainString(term), JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult CreateBlog(int ownerId)
+        {
+            var DB = new Repository();
+            var blog = new Blog();
+            int id = DB.ReturnOwnerId(User.Identity.GetUserName());
+            return View(blog);
+        }
+
+        [HttpPost]
+        public ActionResult CreateBlog(Blog blog,int ownerId)
+        {
+            var DB = new Repository();
+            DB.AddBlogToDatabase(blog,ownerId);
+            return View(blog);
+        }
+
+
+       
     }
 }

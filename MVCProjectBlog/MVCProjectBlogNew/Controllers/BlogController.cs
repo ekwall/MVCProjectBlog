@@ -132,5 +132,7 @@ namespace MVCProjectBlog.Controllers
             db.DeletePost(id);
             return RedirectToAction("Index", new { BlogId = blogId });
         }
+
+        
     }
 }

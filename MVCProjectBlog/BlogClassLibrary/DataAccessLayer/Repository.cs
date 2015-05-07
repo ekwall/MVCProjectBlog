@@ -236,13 +236,13 @@ namespace BlogClassLibrary.DataAccessLayer
             }
         }
 
-        public List<Blog> ReturnUserLoggedInBlogs(string userName)
+        public Owner ReturnLoggedInOwner(string userName)
         {
             using (var _context = new BlogContext())
             {
-                return (from b in _context.Blogs
-                    where b.Owner.UserName == userName
-                    select b).ToList();
+                return (from o in _context.Owners
+                    where o.UserName == userName
+                    select o).FirstOrDefault();
             }
         }
 
@@ -404,14 +404,39 @@ namespace BlogClassLibrary.DataAccessLayer
 
         public List<string> GetHashtagsThatContainString(string term)
         {
-
-
-
             using (var db = new BlogContext())
             {
                 return(from b in db.Hashtags
                        where b.Tag.ToLower().Contains(term.ToLower())
                        select b.Tag).ToList();
+            }
+        }
+
+        public void AddBlogToDatabase(Blog blog,int ownerId)
+        {
+            using (var _context = new BlogContext())
+            {
+                var owner =
+                    (from o in _context.Owners
+                     where o.Id == ownerId
+                     select o).FirstOrDefault();
+
+                if (owner != null)
+                {
+                    blog.DateTime = DateTime.Now;
+                    owner.Blogs.Add(blog);
+                    _context.SaveChanges();
+                }
+            }
+        }
+
+        public int ReturnOwnerId(string ownerName)
+        {
+            using (var _context = new BlogContext())
+            {
+                return (from o in _context.Owners
+                        where o.UserName == ownerName
+                        select o.Id).FirstOrDefault();
             }
         }
     }
