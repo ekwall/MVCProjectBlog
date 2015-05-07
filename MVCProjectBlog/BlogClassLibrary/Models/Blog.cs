@@ -17,9 +17,12 @@ namespace BlogClassLibrary
             Links = new List<Link>();
         }
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Description { get; set; }
         public DateTime DateTime { get; set; }
+        [Required]
         public string BackgroundImage { get; set; }
         public virtual List<Post> Posts { get; set; }
         public virtual List<Link> Links { get; set; }

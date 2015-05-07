@@ -33,10 +33,18 @@ namespace MVCProjectBlog.Controllers
         [HttpPost]
         public ActionResult Edit(Post updated)
         {
-            var db = new Repository();
-        db.UpdatePost(updated);
+            if (ModelState.IsValid)
+            {
+                var db = new Repository();
+                db.UpdatePost(updated);
 
-        return RedirectToAction("Index", new { BlogId = db.GetBlogIdFromPostId(updated.Id) });
+                return RedirectToAction("Index", new {BlogId = db.GetBlogIdFromPostId(updated.Id)});
+            }
+            else
+            {
+                return View(updated);
+            }
+            
         }
 
         
@@ -59,12 +67,19 @@ namespace MVCProjectBlog.Controllers
         [HttpPost]
         public ActionResult SubmitPost(int id, CreateBlogPost createdPost)
         {
-            //createdPost.Blog.Id = id;
-            var db = new Repository();
-        
-        db.InsertNewBlogPost(createdPost, id);
+            if (ModelState.IsValid)
+            {
+                var db = new Repository();
 
-        return RedirectToAction("Index", new { BlogId = id });
+                db.InsertNewBlogPost(createdPost, id);
+
+                return RedirectToAction("Index", new {BlogId = id});
+            }
+            else
+            {
+                return View(createdPost);
+            }
+            
         }
 
         public ActionResult Insert(int id)
@@ -84,16 +99,7 @@ namespace MVCProjectBlog.Controllers
             return RedirectToAction("Index", new { BlogId = id });
         }
 
-        //public ActionResult Index(int Id)
-        //{
-        //    var repository = new Repository();
-        //    var model = repository.GetBlogWithId(Id);
-
-        //    if (model != null)
-        //        return View(model);
-        //    else
-        //        return HttpNotFound();
-        //}
+        
 
         public ActionResult GetPostsWithHashtags(string tag)
         {
@@ -110,11 +116,23 @@ namespace MVCProjectBlog.Controllers
         [HttpPost]
         public ActionResult PostANewComment(Comment comment, int Postid)
         {
+            if (ModelState.IsValid)
+            {
+                var DB = new Repository();
+                DB.AddCommentToPost(comment,Postid);
+                var model = new Comment();
+                return PartialView(model);
+            }
 
-            var DB = new Repository();
-            DB.AddCommentToPost(comment,Postid);
-            var model = new Comment();
-            return PartialView(model);
+            return PartialView(comment);
+
+
+             
+      
+         
+ 
+
+
         }
 
         public ActionResult Delete(string id)
