@@ -1,0 +1,24 @@
+﻿@model IEnumerable<BlogClassLibrary.Hashtag>
+
+<p>
+    <h3>Search result</h3>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tag)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tag)
+        </td>
+       
+    </tr>
+}
+
+</table>

@@ -399,5 +399,20 @@ namespace BlogClassLibrary.DataAccessLayer
             //    _context.SaveChanges();
             //}
         }
+
+        
+
+        public List<string> GetHashtagsThatContainString(string term)
+        {
+
+
+
+            using (var db = new BlogContext())
+            {
+                return(from b in db.Hashtags
+                       where b.Tag.ToLower().Contains(term.ToLower())
+                       select b.Tag).ToList();
+            }
+        }
     }
 }

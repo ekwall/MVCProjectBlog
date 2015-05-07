@@ -24,7 +24,22 @@
 
 
 
+
+
 });
+
+
+$(document).ready(function() {
+     $("#search_term").autocomplete({
+         "source": "/Home/SearchAutoComplete" 
+         
+     });
+
+    $("#search_term").click(function() {
+        alert("hej");
+    });
+});
+
 
 function runEffect(pressedElement) {
    

@@ -59,5 +59,19 @@ namespace MVCProjectBlog.Controllers
         {
             return View();
         }
+
+        public ActionResult Search(string term)
+        {
+            var db = new Repository();
+
+            //List<Hashtag> hasttaglist = db.GetHashtagsThatContainString(term);
+            return PartialView("_SearchResult", db.GetHashtagsThatContainString(term));
+        }
+
+        public JsonResult SearchAutoComplete(string term)
+        {
+            var db = new Repository();
+            return Json(db.GetHashtagsThatContainString(term), JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -61,7 +61,21 @@
                         <h5>Links</h5>
                     </div>
                     <div class="col-md-12 sidebarContentPlaceholder">
-                        <h5>Placeholder</h5>
+                        
+                        <h3>Search</h3>
+
+                        @using (Ajax.BeginForm("SearchAutoComplete", "Home", new AjaxOptions
+                        {
+                            UpdateTargetId = "search_results"
+                        }))
+                        {
+                            <input type ="text" id="search_term"/>
+                            <input type ="submit" value="Go!" />
+                        }
+
+                        
+
+
                     </div>
                 </div>
              </div>
