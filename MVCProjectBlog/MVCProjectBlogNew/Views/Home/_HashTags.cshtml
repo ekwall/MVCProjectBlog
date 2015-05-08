@@ -3,10 +3,11 @@
 
 
 
-@foreach (var item in Model) {
-   
-           <p class="HashtagParagraph">@Html.DisplayFor(modelItem => item.Tag)</p> 
-     
+@foreach (var item in Model)
+{
+
+    <p class="HashtagParagraph">@Html.ActionLink(item.Tag + "  ", "GetPostsWithHashtags", "Blog", new { tag = item.Tag }, null)</p>
+
 }
 
 

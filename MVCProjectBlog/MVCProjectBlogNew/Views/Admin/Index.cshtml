@@ -1,4 +1,4 @@
-﻿@using WebGrease.Css.Extensions
+﻿
 @model BlogClassLibrary.Owner
 
 @{
@@ -6,11 +6,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>@Model.UserName - blogs</h2>
 
-<p>
-    @Html.ActionLink("Create Blog", "CreateBlog", "Home",new{ownerId = Model.Id},null)
-</p>
+<h4>
+    @Html.ActionLink("Create Blog", "CreateBlog", "Home", new {ownerId = Model.Id}, null)
+</h4>
+
+
+   
+<table class="table">
+    <tr>
+        <th>
+            <h4>Blog Name</h4>
+        </th>
+        <th>
+            <h4>Blog Description</h4>
+        </th>
+        <th>
+            <h4>Blog Created</h4>
+        </th>
+        
+    </tr>
+
+@foreach(var blog in Model.Blogs)
+{ 
+    <tr>
+        <td>
+            <h4>@Html.ActionLink(blog.Name, "Index", "Blog", new { blogId = blog.Id }, null)</h4>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => blog.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => blog.DateTime)
+        </td>
+        
+        
+    </tr>
+}
+</table>
+
 
 
 

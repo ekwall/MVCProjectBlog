@@ -8,7 +8,7 @@
     ViewBag.HeaderImage = Model.BackgroundImage;
     ViewBag.BlogId = Model.Id;
 }
-
+<link href="~/Styles/ViewStyles/HomeViewStyle.css" rel="stylesheet" />
 <div id="fb-root"></div>
 <script>
     (function (d, s, id) {
@@ -68,8 +68,8 @@
                     @Html.Action("PostANewComment", new {Postid = item.Id})
 
                 </div>
+            <hr/>
             </div>
-
         
         }
 
@@ -78,29 +78,37 @@
 </div>
 
 
-<div class="col-md-3 blogSideContent">
-
+<div class="col-md-3 sidebarContent">
     <div class="container">
         <div class="row">
             <div class="col-md-12 sidebarContentPlaceholder">
-                <h5>Top-Ten hashtags</h5>
-                @*@foreach (var blog in Model)
+
+
+                <h3>Search</h3>
+
+                @using (Ajax.BeginForm("SearchAutoComplete", "Home", new AjaxOptions
+                        {
+                            UpdateTargetId = "search_results"
+                        }))
                 {
+                    <input type="text" id="search_term" />
+                    <input type="submit" value="Go!" />
+                }
 
-                    foreach (var post in blog.Posts)
-                    {
-                        @Html.Partial("_HashTags", post.Hashtags)
-                    }
-
-
-                }*@
 
             </div>
             <div class="col-md-12 sidebarContentPlaceholder">
-                <h5>RSS FLOW</h5>
+
+                <h5>Latest Posts</h5>
+
+                @Html.Action("_postHeader", "Home")
+
             </div>
             <div class="col-md-12 sidebarContentPlaceholder">
-                <h5>Placeholder</h5>
+                <h5>Top-25 Hashtags</h5>
+
+                @Html.Action("_HashTags", "Home")
+
             </div>
         </div>
     </div>

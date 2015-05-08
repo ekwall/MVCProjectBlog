@@ -97,7 +97,7 @@ namespace MVCProjectBlog.Controllers
         {
             var DB = new Repository();
             var model = DB.GetPostHeaderByDate();
-            return PartialView(model);
+            return PartialView("_postHeader",model);
         }
 
 

@@ -82,13 +82,15 @@
 
 
 
-.HashtagParagraph {
+.HashtagParagraph{
+
     display: block;
     float: left;
     margin-right: 5px;
-    color: black;
+    
     
 }
+
 .HashtagParagraph:hover {
     color: lightseagreen;
     cursor: pointer;

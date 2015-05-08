@@ -206,7 +206,8 @@ namespace BlogClassLibrary.DataAccessLayer
             {
                 return (
                     from h in _context.Hashtags
-                    select h).Take(10).ToList();
+                    orderby h.Post.DateTime descending
+                    select h).Take(15).ToList();
             }
         } 
         public List<Post> ReturnPostsToMainCarousell()
@@ -263,12 +264,11 @@ namespace BlogClassLibrary.DataAccessLayer
 
         public Owner ReturnLoggedInOwner(string userName)
         {
-            using (var _context = new BlogContext())
-            {
+            var _context = new BlogContext();
                 return (from o in _context.Owners
                     where o.UserName == userName
                     select o).FirstOrDefault();
-            }
+            
         }
 
         public List<int> ReturnAllHashtagsFromPostId(int postId)
@@ -470,7 +470,7 @@ namespace BlogClassLibrary.DataAccessLayer
             var _context = new BlogContext();
             var query =
                 (from h in _context.Posts
-                 orderby h.DateTime ascending 
+                 orderby h.DateTime descending 
                  select h).Take(5).ToList();
             return query;
         }

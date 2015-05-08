@@ -31,14 +31,13 @@ namespace MVCProjectBlogNew.Controllers
     {
         
       
-
+        
         public ActionResult Login()
         {
             return View(new Owner());
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Login(Owner owner)
         {
             if (owner != null)

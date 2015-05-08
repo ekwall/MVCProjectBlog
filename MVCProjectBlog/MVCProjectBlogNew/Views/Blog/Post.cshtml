@@ -8,6 +8,7 @@
     ViewBag.Title = Model.Blog.Name + " | " + Model.Header ;
     Layout = "~/Views/Shared/_BlogLayout.cshtml";
 }
+<link href="~/Styles/ViewStyles/HomeViewStyle.css" rel="stylesheet" />
 @*<link href="~/Styles/_BlogLayoutStyle.css" rel="stylesheet" />*@
 <div id="fb-root"></div>
 <script>
@@ -26,6 +27,8 @@
     <div class="fb-like" data-href="http://mountainpower.se/Blog/Post?PostId=@Model.Id" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
     </div>
 
+    <h3>@Html.ActionLink("Go to blog - " + Model.Blog.Name, "Index", "Blog", new { BlogId = Model.Blog.Id }, null)</h3>
+    
     <div class="fadeToggleClass"><p>@Model.Comments.Count Comments</p></div>
     <div class="testHideDivId col-md-12">
         @foreach (var comment in Model.Comments)
@@ -43,36 +46,49 @@
 
     </div>
 </div>
-    <div class="col-md-3 blogSideContent">
+   <div class="col-md-3 sidebarContent">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 sidebarContentPlaceholder">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 sidebarContentPlaceholder">
-                    <h5>Top-Ten hashtags</h5>
-                    @*@foreach (var blog in Model)
+
+                <h3>Search</h3>
+
+                @using (Ajax.BeginForm("SearchAutoComplete", "Home", new AjaxOptions
                         {
-
-                            foreach (var post in blog.Posts)
-                            {
-                                @Html.Partial("_HashTags", post.Hashtags)
-                            }
-
-
-                        }*@
+                            UpdateTargetId = "search_results"
+                        }))
+                {
+                    <input type="text" id="search_term" />
+                    <input type="submit" value="Go!" />
+                }
 
 
+            </div>
+            <div class="col-md-12 sidebarContentPlaceholder">
 
-                </div>
-                <div class="col-md-12 sidebarContentPlaceholder">
-                    <h5>RSS FLOW</h5>
-                </div>
-                <div class="col-md-12 sidebarContentPlaceholder">
-                    <h5>Placeholder</h5>
-                </div>
+                <h5>Latest Posts</h5>
+
+                @Html.Action("_postHeader","Home")
+
+            </div>
+            <div class="col-md-12 sidebarContentPlaceholder">
+                <h5>Top-25 Hashtags</h5>
+
+                @Html.Action("_HashTags","Home")
+
             </div>
         </div>
-
     </div>
+
+</div>
+
+
+
+
+
+
+
 
 
 

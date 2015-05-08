@@ -61,26 +61,13 @@
 
                         <h5>Latest Posts</h5>
 
-                        @foreach (var blog in Model)
-                        {
-
-                            @Html.Partial("_postHeader", blog.Posts)
-
-                        }
+                            @Html.Action("_postHeader")
                        
                     </div>
                     <div class="col-md-12 sidebarContentPlaceholder">
-                        <h5>Top-Ten hashtags</h5>
-                        @foreach (var blog in Model)
-                        {
-
-                            foreach (var post in blog.Posts)
-                            {
-                                @Html.Partial("_HashTags", post.Hashtags)
-                            }
-
-
-                        }
+                        <h5>Top-25 Hashtags</h5>
+                            
+                                @Html.Action("_HashTags")
 
                     </div>
                 </div>
