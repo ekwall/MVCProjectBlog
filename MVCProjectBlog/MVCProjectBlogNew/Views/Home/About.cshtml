@@ -1,10 +1,77 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "About";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/Styles/ViewStyles/HomeViewStyle.css" rel="stylesheet" />
+<div class="col-md-9 blogMainContent">
+    <h2>About Raj</h2>
 
-<h2>About</h2>
+    <h3>Developers</h3>
+    <ul>
+        <li>
+            <strong>R</strong>obin Bergström
+        </li>
+        <li>
+            <strong>A</strong>ndreas Ekwall
+        </li>
+        <li>
+            <strong>J</strong>akob Stjernholm
+        </li>
+    </ul>
 
-test
+    <hr />
+
+    <p>
+        This blog is made because of a project in a course called MVC(Model View Controller).<br />
+        We are all three students at EC-Utbildning located in Hesingborg, Sweden.
+        We were all beginners at MVC and this is the first MVC-project we are involved in, and we did it in only <strong>2-3 weeks</strong>.
+        We hope you will enjoy your stay at our blog portal and will be happy to see you @Html.ActionLink("register", "Register", "Home") and start blogging!
+    </p>
+    <hr />
+
+    <h4>Contacts</h4>
+    <ul class="contactEmailClass">
+        <li>robin.bergstrom.win14@HermodsAB.onmicrosoft.com</li>
+        <li>andreas.ekwall.win14@HermodsAB.onmicrosoft.com</li>
+        <li>jakob.stjernholm.win14@HermodsAB.onmicrosoft.com</li>
+    </ul>
+</div>
+<div class="col-md-3 sidebarContent">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 sidebarContentPlaceholder">
+
+
+                <h3>Search</h3>
+
+                @using (Ajax.BeginForm("SearchAutoComplete", "Home", new AjaxOptions
+                        {
+                            UpdateTargetId = "search_results"
+                        }))
+                {
+                    <input type="text" id="search_term" />
+                    <input type="submit" value="Go!" />
+                }
+
+
+            </div>
+            <div class="col-md-12 sidebarContentPlaceholder">
+
+                <h5>Latest Posts</h5>
+
+                @Html.Action("_postHeader")
+
+            </div>
+            <div class="col-md-12 sidebarContentPlaceholder">
+                <h5>Top-25 Hashtags</h5>
+
+                @Html.Action("_HashTags")
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
 

@@ -153,6 +153,13 @@ namespace MVCProjectBlog.Controllers
             return RedirectToAction("Index", new { BlogId = blogId });
         }
 
+        public ActionResult About(int blogId)
+        {
+            var DB = new Repository();
+            var model = DB.GetBlogWithId(blogId);
+            return View(model);
+        }
+
         
     }
 }

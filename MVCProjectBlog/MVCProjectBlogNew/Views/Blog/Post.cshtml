@@ -23,6 +23,12 @@
 <div class="col-md-9 blogMainContent">
     <h2>@Model.Header</h2>
     <p>@Model.Content</p>
+    <div>
+        @foreach (var hashtag in Model.Hashtags)
+        {
+            @Html.ActionLink(hashtag.Tag + "  ", "GetPostsWithHashtags", "Blog", new { tag = hashtag.Tag }, null)
+        }
+    </div>
 
     <div class="fb-like" data-href="http://mountainpower.se/Blog/Post?PostId=@Model.Id" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
     </div>

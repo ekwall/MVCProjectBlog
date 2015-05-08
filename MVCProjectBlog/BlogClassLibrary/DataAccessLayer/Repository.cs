@@ -207,7 +207,7 @@ namespace BlogClassLibrary.DataAccessLayer
                 return (
                     from h in _context.Hashtags
                     orderby h.Post.DateTime descending
-                    select h).Take(15).ToList();
+                    select h).Take(25).ToList();
             }
         } 
         public List<Post> ReturnPostsToMainCarousell()

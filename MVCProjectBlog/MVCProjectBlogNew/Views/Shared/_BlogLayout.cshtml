@@ -56,7 +56,7 @@
                         <ul class="nav navbar-nav">
                             <li>@Html.ActionLink("Home", "Index", "Home", new { BlogId = @ViewBag.BlogId }, null)</li>
 
-                            <li>@Html.ActionLink("About", "About", "Blog")</li>
+                            <li>@Html.ActionLink("About", "About", "Blog", new { BlogId = @ViewBag.BlogId},null)</li>
 
                             <li>@Html.ActionLink("New with WYSIWYG", "Insert", new { id = @ViewBag.BlogId })</li>
 
