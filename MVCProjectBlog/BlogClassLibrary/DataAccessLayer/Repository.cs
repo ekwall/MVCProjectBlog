@@ -197,12 +197,12 @@ namespace BlogClassLibrary.DataAccessLayer
             var _context = new BlogContext();
             
                 var query =
-                    from b in _context.Blogs
+                    (from b in _context.Blogs
                     where b.Id == blogId
-                    select b;
+                    select b).FirstOrDefault();
 
-                returnBlog = query.FirstOrDefault();
-                return returnBlog;
+                
+                return query;
             
 }
 

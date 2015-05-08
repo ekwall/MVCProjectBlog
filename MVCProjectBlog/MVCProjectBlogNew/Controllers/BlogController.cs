@@ -48,7 +48,7 @@ namespace MVCProjectBlog.Controllers
             
         }
 
-        
+
         public ActionResult Index(string BlogId)
         {
 

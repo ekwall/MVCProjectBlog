@@ -47,7 +47,8 @@
         </dl>
     </div>
     <div>
-        @Html.ActionLink("Back to blog - " + Model.Name,"Index","Blog",new {blogId = @ViewBag.BlogId})
+       @Html.ActionLink("Back to blog - " + Model.Name, "Index", "Blog", new { BlogId = Model.Id}, null)
+       
     </div>
     
 
