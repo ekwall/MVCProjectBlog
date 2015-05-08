@@ -78,11 +78,10 @@
 </div>
 
 
-<div class="col-md-3 sidebarContent">
+<div class="col-md-3 blogSideContent">
     <div class="container">
         <div class="row">
             <div class="col-md-12 sidebarContentPlaceholder">
-
 
                 <h3>Search</h3>
 
@@ -108,6 +107,16 @@
                 <h5>Top-25 Hashtags</h5>
 
                 @Html.Action("_HashTags", "Home")
+
+            </div>
+            <div class="col-md-12 sidebarContentPlaceholder">
+                <h5>Links</h5>
+                @foreach (var link in Model.Links)
+                {
+                    <a class="blogLinkAnchor" href="@link.HyperLink">@link.LinkName</a>
+                    <br />
+                }
+                
 
             </div>
         </div>

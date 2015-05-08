@@ -98,3 +98,7 @@
 .contactEmailClass {
     color: #428bca;
 }
+
+#search_term {
+    margin-bottom: 25px;
+}

@@ -2,5 +2,7 @@
 
 @foreach (var item in Model)
 {
-    <p>@Html.ActionLink(item.Header, "Post", "Blog", new { postid = item.Id }, null) <br /></p>
+    <p>@Html.ActionLink(item.Header, "Post", "Blog", new {postid = item.Id}, null) <br/>
+    </p>
+    
 }

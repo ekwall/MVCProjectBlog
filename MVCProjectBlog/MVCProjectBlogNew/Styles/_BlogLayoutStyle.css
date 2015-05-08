@@ -81,12 +81,14 @@ p,a,span,li,nav,footer {
 
 .blogMainContent {
     background-color: #cccccc;
+    min-height: 650px;
 }
 
 /* *** SideContent *** */
 
 .blogSideContent {
         background-color: #eeeeee;
+        min-height: 650px;
 }
 
 .sidebarContentPlaceholder {
@@ -105,3 +107,32 @@ p,a,span,li,nav,footer {
 .RobinLearingToComment:nth-child(even) {
     background-color: lightgray;
 }*/
+
+.blogLinkAnchor {
+    display: inline;
+    float: left;
+}
+
+.blogFooter {
+    
+    background-color: #000000;
+    min-height: 220px;
+}
+
+.footerContent {
+    margin-top: 10px;
+    margin-bottom: 10px;
+   
+}
+
+.footerContent > h5 {
+    color: #2A6496;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.footerParaContent {
+    
+    color: #2A6496;
+    
+}

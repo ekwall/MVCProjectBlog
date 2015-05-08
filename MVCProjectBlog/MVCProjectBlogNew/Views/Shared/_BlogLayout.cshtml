@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -50,17 +51,22 @@
                                 "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                     </div>
                 </div>
-                 
+
                 <div class="navigation">
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li>@Html.ActionLink("Home", "Index", "Home", new { BlogId = @ViewBag.BlogId }, null)</li>
 
-                            <li>@Html.ActionLink("About", "About", "Blog", new { BlogId = @ViewBag.BlogId},null)</li>
+                            <li>@Html.ActionLink("About", "About", "Blog", new { BlogId = @ViewBag.BlogId }, null)</li>
 
-                            <li>@Html.ActionLink("New with WYSIWYG", "Insert", new { id = @ViewBag.BlogId })</li>
+                            @*<li>@Html.ActionLink("New with WYSIWYG", "Insert", new { id = @ViewBag.BlogId })</li>*@
+                            
 
-                            <li>@Html.ActionLink("New Regular Post", "SubmitPost", new { id = @ViewBag.BlogId })</li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li>@Html.ActionLink("New Regular Post", "SubmitPost", new { id = @ViewBag.BlogId })</li>
+                            }
+                            
 
                         </ul>
 
@@ -79,8 +85,45 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <footer class="col-md-12 blogFooter">
+                <div class="col-md-2 footerContent">
+                    </div>
+                    <div class="col-md-2 footerContent">
+                        <h5>Links</h5>
+                        
+
+                        <p class="footerParaContent">Top</p>
+                        <p class="footerParaContent">Portal</p>
+                    </div>
 
 
+                    <div class="col-md-2 footerContent">
+                        <h5>About</h5>
+                        <p class="footerParaContent">Author</p>
+                        <p class="footerParaContent">Blog</p>
+                        <p class="footerParaContent">Privacy policy</p>
+                        <p class="footerParaContent">Terms Of Service</p>
+                        <p class="footerParaContent">Cookies</p>
+                    </div>
+                    <div class="col-md-2 footerContent">
+                        <h5>Help</h5>
+                        <p class="footerParaContent">Help Center</p>
+                        <p class="footerParaContent">Get started</p>
+                        <p class="footerParaContent">Contact</p>
+                    </div>
+                    <div class="col-md-2 footerContent">
+                        <h5>Connect</h5>
+                        <p class="footerParaContent">Facebook</p>
+                        <p class="footerParaContent">Twitter</p>
+                        <p class="footerParaContent">Instagram</p>
+                        <p class="footerParaContent">LinkedIn</p>
+                        
+                    </div>
+</footer>
+        </div>
+    </div>
 
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>

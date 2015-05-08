@@ -117,8 +117,14 @@ namespace BlogClassLibrary.DataAccessLayer
         }
         public Blog GetBlogWithId(int Id)
         {
-            var bloglist = ReturnBlogs();
-            return Id < bloglist.Count ? bloglist[Id] : null;
+            //var bloglist = ReturnBlogs();
+            //return Id < bloglist.Count ? bloglist[Id] : null;
+            var _context = new BlogContext();
+            var blog =
+                (from b in _context.Blogs
+                    where b.Id == Id
+                    select b).FirstOrDefault();
+            return blog;
         }
 
         public string GetBlogName(string userName)
