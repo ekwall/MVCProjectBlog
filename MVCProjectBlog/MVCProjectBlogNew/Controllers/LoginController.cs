@@ -47,6 +47,7 @@ namespace MVCProjectBlogNew.Controllers
 
                 if (userId > 0)
                 {
+                   
                     FormsAuthentication.SetAuthCookie(owner.UserName, createPersistentCookie: false);
                     return RedirectToAction("Index", "Home");
                     

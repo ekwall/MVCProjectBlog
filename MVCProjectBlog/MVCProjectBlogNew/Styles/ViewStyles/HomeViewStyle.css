@@ -1,5 +1,5 @@
 ﻿.AvailableBlogsContainer {
-    background-color: #f5f5f5;
+    background-color: #F5F5F5;
     height: 100px;
     overflow: hidden;
     
@@ -28,9 +28,12 @@
 
 }
 
+
 .CarouselH3 {
-    font-size: 1.7;
+    font-size: 1.7REM;
+    
 }
+
 
 .AvailableBlogsContainer:hover {
     transition: box-shadow 0.1s ease;

@@ -35,10 +35,7 @@ $(document).ready(function() {
          
      });
 
-    $("#search_term").click(function() {
-        alert("hej");
-    });
-});
+   });
 
 
 function runEffect(pressedElement) {

@@ -58,7 +58,6 @@ namespace MVCProjectBlog.Controllers
 
         }
         [Authorize]
-        [ValidateAntiForgeryToken]
         public ActionResult SubmitPost(int id)
         {
 
@@ -110,7 +109,7 @@ namespace MVCProjectBlog.Controllers
             var model = DB.GetAllPostsContainingSpecificHashtag(tag);
             return View(model);
         }
-        [ValidateAntiForgeryToken]
+        
         public ActionResult PostANewComment(int Postid)
         {
             var model = new Comment();
