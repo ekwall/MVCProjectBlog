@@ -31,6 +31,7 @@ namespace MVCProjectBlog.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Post updated)
         {
             if (ModelState.IsValid)
@@ -57,6 +58,7 @@ namespace MVCProjectBlog.Controllers
 
         }
         [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult SubmitPost(int id)
         {
 
@@ -65,6 +67,7 @@ namespace MVCProjectBlog.Controllers
         }
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SubmitPost(int id, CreateBlogPost createdPost)
         {
             if (ModelState.IsValid)
@@ -107,13 +110,14 @@ namespace MVCProjectBlog.Controllers
             var model = DB.GetAllPostsContainingSpecificHashtag(tag);
             return View(model);
         }
-
+        [ValidateAntiForgeryToken]
         public ActionResult PostANewComment(int Postid)
         {
             var model = new Comment();
             return PartialView(model);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult PostANewComment(Comment comment, int Postid)
         {
             if (ModelState.IsValid)

@@ -27,6 +27,7 @@ namespace MVCProjectBlog.Controllers
             return PartialView("CarousellPosts",model);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Register(Owner owner)
         {
             var Db = new Repository();
@@ -74,7 +75,7 @@ namespace MVCProjectBlog.Controllers
             var db = new Repository();
             return Json(db.GetHashtagsThatContainString(term), JsonRequestBehavior.AllowGet);
         }
-
+        [ValidateAntiForgeryToken]
         public ActionResult CreateBlog(int ownerId)
         {
             var DB = new Repository();
@@ -84,6 +85,7 @@ namespace MVCProjectBlog.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CreateBlog(Blog blog,int ownerId)
         {
             var DB = new Repository();
