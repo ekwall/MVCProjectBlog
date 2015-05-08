@@ -499,8 +499,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\tinymce_full_compressed.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
     <Content Include="Views\Blog\_ViewStart.cshtml" />
     <Content Include="Views\Blog\Edit.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
@@ -527,6 +525,8 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\CreateBlog.cshtml" />
     <Content Include="Views\Blog\SubmitPost.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\tinymce_full_compressed.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
