@@ -42,23 +42,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 sidebarContentPlaceholder">
-                        <h5>Top-Ten hashtags</h5>
-                        @foreach (var blog in Model)
-                        {
-
-                            foreach (var post in blog.Posts)
-                            {
-                                @Html.Partial("_HashTags",post.Hashtags)
-                            }
-
-
-                        }
-
                         
-
-                    </div>
-                    <div class="col-md-12 sidebarContentPlaceholder">
-                      
+                       
                         <h3>Search</h3>
 
                         @using (Ajax.BeginForm("SearchAutoComplete", "Home", new AjaxOptions
@@ -69,12 +54,33 @@
                             <input type="text" id="search_term" />
                             <input type="submit" value="Go!" />
                         }
-                    </div>
-                    <div class="col-md-12 sidebarContentPlaceholder">
-                        
-                        <h5>Links</h5>
                         
 
+                    </div>
+                    <div class="col-md-12 sidebarContentPlaceholder">
+
+                        <h5>Latest Posts</h5>
+
+                        @foreach (var blog in Model)
+                        {
+
+                            @Html.Partial("_postHeader", blog.Posts)
+
+                        }
+                       
+                    </div>
+                    <div class="col-md-12 sidebarContentPlaceholder">
+                        <h5>Top-Ten hashtags</h5>
+                        @foreach (var blog in Model)
+                        {
+
+                            foreach (var post in blog.Posts)
+                            {
+                                @Html.Partial("_HashTags", post.Hashtags)
+                            }
+
+
+                        }
 
                     </div>
                 </div>

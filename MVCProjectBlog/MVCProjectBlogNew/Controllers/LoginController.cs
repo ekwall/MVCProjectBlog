@@ -38,6 +38,7 @@ namespace MVCProjectBlogNew.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(Owner owner)
         {
             if (owner != null)

@@ -66,7 +66,6 @@ namespace MVCProjectBlog.Controllers
         }
         [Authorize]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult SubmitPost(int id, CreateBlogPost createdPost)
         {
             if (ModelState.IsValid)

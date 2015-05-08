@@ -464,5 +464,15 @@ namespace BlogClassLibrary.DataAccessLayer
                         select o.Id).FirstOrDefault();
             }
         }
+
+        public List<Post> GetPostHeaderByDate()
+        {
+            var _context = new BlogContext();
+            var query =
+                (from h in _context.Posts
+                 orderby h.DateTime ascending 
+                 select h).Take(5).ToList();
+            return query;
+        }
     }
 }

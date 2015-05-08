@@ -8,6 +8,7 @@
     ViewBag.Title = Model.Blog.Name + " | " + Model.Header ;
     Layout = "~/Views/Shared/_BlogLayout.cshtml";
 }
+@*<link href="~/Styles/_BlogLayoutStyle.css" rel="stylesheet" />*@
 <div id="fb-root"></div>
 <script>
     (function (d, s, id) {
@@ -18,15 +19,60 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
+<div class="col-md-9 blogMainContent">
+    <h2>@Model.Header</h2>
+    <p>@Model.Content</p>
 
-<h2>@Model.Header</h2>
-<p>@Model.Content</p>
-<p>Comments:</p>
-@foreach (var comment in Model.Comments)
-{
-    <p>@comment.Content</p>
-}
-<div class="fb-like" data-href="http://mountainpower.se/Blog/Post?PostId=@Model.Id" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
+    <div class="fb-like" data-href="http://mountainpower.se/Blog/Post?PostId=@Model.Id" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
+    </div>
+
+    <div class="fadeToggleClass"><p>@Model.Comments.Count Comments</p></div>
+    <div class="testHideDivId col-md-12">
+        @foreach (var comment in Model.Comments)
+        {
+            <div class="RobinLearingToComment col-md-12">
+                @*@Html.DisplayFor(modelItem => comment.DateTime)*@
+                <strong>@Html.DisplayFor(modelItem => comment.Author):</strong> <br />
+                @Html.DisplayFor(modelItem => comment.Content)<br />
+                @Html.DisplayFor(modelItem => comment.DateTime)
+                <hr />
+            </div>
+        }
+
+        @Html.Action("PostANewComment", new { Postid = Model.Id })
+
+    </div>
 </div>
+    <div class="col-md-3 blogSideContent">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 sidebarContentPlaceholder">
+                    <h5>Top-Ten hashtags</h5>
+                    @*@foreach (var blog in Model)
+                        {
+
+                            foreach (var post in blog.Posts)
+                            {
+                                @Html.Partial("_HashTags", post.Hashtags)
+                            }
+
+
+                        }*@
+
+
+
+                </div>
+                <div class="col-md-12 sidebarContentPlaceholder">
+                    <h5>RSS FLOW</h5>
+                </div>
+                <div class="col-md-12 sidebarContentPlaceholder">
+                    <h5>Placeholder</h5>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 
 

@@ -75,7 +75,7 @@ namespace MVCProjectBlog.Controllers
             var db = new Repository();
             return Json(db.GetHashtagsThatContainString(term), JsonRequestBehavior.AllowGet);
         }
-        [ValidateAntiForgeryToken]
+        
         public ActionResult CreateBlog(int ownerId)
         {
             var DB = new Repository();
@@ -91,6 +91,13 @@ namespace MVCProjectBlog.Controllers
             var DB = new Repository();
             DB.AddBlogToDatabase(blog,ownerId);
             return View(blog);
+        }
+
+        public ActionResult _postHeader()
+        {
+            var DB = new Repository();
+            var model = DB.GetPostHeaderByDate();
+            return PartialView(model);
         }
 
 
