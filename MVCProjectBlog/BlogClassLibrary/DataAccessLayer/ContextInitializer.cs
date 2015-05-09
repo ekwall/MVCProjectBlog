@@ -143,7 +143,7 @@ namespace BlogClassLibrary.DataAccessLayer
             };
             owners = new List<Owner>
             {
-                new Owner{UserName = "FreedomFighter", Password = "123", FirstName = "Neil",LastName = "Kirkpatrick",Country = "Scotland",Email = "neil@angryscottsman.uk",Blogs = blogs,Description = "I'm a guy with 37 earthspins, who lives in Edinburgh with my wifey(wi-fi)!"}
+                new Owner{UserName = "FreedomFighter", Password = "123".GetTypeCode().ToString(), FirstName = "Neil",LastName = "Kirkpatrick",Country = "Scotland",Email = "neil@angryscottsman.uk",Blogs = blogs,Description = "I'm a guy with 37 earthspins, who lives in Edinburgh with my wifey(wi-fi)!"}
             };
         }
 
