@@ -31,7 +31,7 @@ namespace MVCProjectBlog.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public ActionResult Edit(Post updated)
         {
             if (ModelState.IsValid)

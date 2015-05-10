@@ -26,7 +26,7 @@ namespace BlogClassLibrary.DataAccessLayer
 
                     targetPost.Header = updatedPost.Header;
                     targetPost.Content = updatedPost.Content;
-                    
+                    targetPost.DateTime = DateTime.Now;
 
                     _context.SaveChanges();
                 }
