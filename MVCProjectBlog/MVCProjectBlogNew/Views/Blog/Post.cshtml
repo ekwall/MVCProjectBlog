@@ -35,6 +35,7 @@
 
 
 
+
     <div>
         <p>Pictures</p>
         <img class="Postimage col-sm-6" src="@Html.DisplayFor(modelItem => Model.Postimage)" alt="...">
@@ -48,9 +49,11 @@
     <div class="fb-like" data-href="http://mountainpower.se/Blog/Post?PostId=@Model.Id" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
     </div>
 
+
     <h3>@Html.ActionLink("Go to blog - " + Model.Blog.Name, "Index", "Blog", new { BlogId = Model.Blog.Id }, null)</h3>
 
-    <div class="fadeToggleClass"><p>@Model.Comments.Count Comments</p></div>
+
+<div class="fadeToggleClass"><p>@Model.Comments.Count Comments</p></div>
     <div class="testHideDivId col-md-12">
         @foreach (var comment in Model.Comments)
         {
@@ -66,43 +69,43 @@
         @Html.Action("PostANewComment", new { Postid = Model.Id })
 
     </div>
-</div>
-<div class="col-md-3 sidebarContent">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 sidebarContentPlaceholder">
+    </div>
+    <div class="col-md-3 sidebarContent">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 sidebarContentPlaceholder">
 
 
-                <h3>Search</h3>
+                    <h3>Search</h3>
 
-                @using (Ajax.BeginForm("SearchAutoComplete", "Home", new AjaxOptions
+                    @using (Ajax.BeginForm("SearchAutoComplete", "Home", new AjaxOptions
                         {
                             UpdateTargetId = "search_results"
                         }))
-                {
-                    <input type="text" id="search_term" />
-                    <input type="submit" value="Go!" />
-                }
+                    {
+                        <input type="text" id="search_term" />
+                        <input type="submit" value="Go!" />
+                    }
 
 
-            </div>
-            <div class="col-md-12 sidebarContentPlaceholder">
+                </div>
+                <div class="col-md-12 sidebarContentPlaceholder">
 
-                <h5>Latest Posts</h5>
+                    <h5>Latest Posts</h5>
 
-                @Html.Action("_postHeader", "Home")
+                    @Html.Action("_postHeader", "Home")
 
-            </div>
-            <div class="col-md-12 sidebarContentPlaceholder">
-                <h5>Top-25 Hashtags</h5>
+                </div>
+                <div class="col-md-12 sidebarContentPlaceholder">
+                    <h5>Top-25 Hashtags</h5>
 
-                @Html.Action("_HashTags", "Home")
+                    @Html.Action("_HashTags", "Home")
 
+                </div>
             </div>
         </div>
-    </div>
 
-</div>
+    </div>
 
 
 

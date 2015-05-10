@@ -41,11 +41,20 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Postimage, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Postimage, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Postimage, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Postimage, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Postimage, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Postimage, "", new {@class = "text-danger"})
             </div>
+        </div>
+
+        <div>
+            <h3>Copy and one of the links to add a theme picture to your blog</h3>
+            <p> This is a work in progress</p>
+            <p> <strong>Life, Nature:</strong>http://www.cccwt.org.uk/communities/4/004/012/867/704//images/4615066949_918x349.jpg </p>
+            <p> <strong>Books, Religion:</strong>http://christianinsights.com.au/wp-content/uploads/2013/04/bible-verse3.jpg</p>
+            <p> <strong>Birds:</strong>http://birdtourchina.com/wp-content/uploads/2013/11/Yellow-throated-Laughingthrush.jpg</p>
+
         </div>
 
         <div class="form-group">
